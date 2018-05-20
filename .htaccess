@@ -1,0 +1,15 @@
+RewriteEngine on
+
+#RewriteCond %{HTTPS} on
+#RewriteCond %{REQUEST_URI} !^/\.well-known/.*$
+#RewriteRule (.*) http://127.0.0.1/$1 [L]
+
+RewriteBase /projet4/
+
+RewriteCond %{REQUEST_URI} !index.php
+
+RewriteRule ^([_a-zA-Z0-9-]+)/$ index.php?dossier=$1 [L]
+RewriteRule ^([_a-zA-Z0-9-]+)/([_a-zA-Z0-9-]+)/$ index.php?dossier=$1&module=$2 [L]
+RewriteRule ^([_a-zA-Z0-9-]+)/([_a-zA-Z0-9-]+)/([_a-zA-Z0-9-]+)$ index.php?dossier=$1&module=$2&page=$3 [L]
+RewriteRule ^([_a-zA-Z0-9-]+)/([_a-zA-Z0-9-]+)/([_a-zA-Z0-9-]+)/([_a-zA-Z0-9-]+)$ index.php?dossier=$1&module=$2&page=$3&param=$4 [L]
+

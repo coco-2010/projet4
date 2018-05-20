@@ -1,0 +1,65 @@
+/* -----------------
+=       GENERAL     =
+--------------------*/
+*{
+    margin: 0;
+    font-family: 'Comic Sans', sans-serif;
+}
+
+/* ----------------------------------
+=       BACKOFFICE LOGIN/REGISTER    =
+------------------------------------*/
+
+.container{
+    width: 25%;
+    margin: auto;
+    margin-top: 5%;
+
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+}
+
+#title-login{
+    font-size: 35px;
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+.form-fields{
+    line-height: 45px;
+    font-size: 17px;
+    border: 1px solid rgb(187, 186, 186);
+    padding-left: 10px;
+}
+
+.form-fields:focus{
+    border: 1px solid #337ab7;
+    box-shadow: 0px 0px 12px #337ab7
+}
+
+.email{
+    border-radius: 5px 5px 0 0;
+}
+
+.pass{
+    border-radius: 0 0 5px 5px;
+    margin-bottom: 20px;
+}
+
+.submit{
+    line-height: 45px;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    border: none;
+    color: white;
+    background: #337ab7;
+}
+
+.submit:hover{
+    background: #286090;
+}
