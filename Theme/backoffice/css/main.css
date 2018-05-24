@@ -3,6 +3,7 @@
 --------------------*/
 *{
     margin: 0;
+    padding: 0;
     font-family: 'Comic Sans', sans-serif;
 }
 
@@ -62,4 +63,187 @@
 
 .submit:hover{
     background: #286090;
+}
+
+/* ----------------------------------
+=       BACKOFFICE SYSTEME          =
+------------------------------------*/
+
+#dashboard-nav:hover{
+    color: #286090;
+}
+
+#dashboard-header{
+    height: 50px;
+    background: #f8f8f8;
+    
+    line-height: 50px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+#container-dashboard-header{
+    width: 90%;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.link{
+    text-decoration: none;
+    color: #337ab7;
+    line-height: 100%;
+    width: 100%;
+    position: relative;
+    display: inline-block;
+}
+
+li{
+    list-style-type: none;
+}
+
+#dashboard-title{
+    color: #5e5e6e;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+#link-logout{
+    font-size: 14px;
+}
+
+#navigation{
+    width: 17%;
+    height: 100vh;
+    background: #f8f8f8;
+    font-size: 15px;
+    
+}
+
+.nav-rank1{
+    background: #f8f8f8;
+    border-bottom: 1px solid #eeeeee;
+    line-height: 40px;
+    padding-left: 20px;
+}
+
+/*.nav-rank2{
+    visibility: hidden;
+}*/
+
+
+.fa-angle-left{
+    right: 5%;
+    position: absolute;
+}
+
+/* ----------------------------------
+=       BACKOFFICE PAGE        =
+------------------------------------*/
+
+.page-backoffice{
+    position: absolute;
+    left:20%;
+    top: 15%;
+    width: 77%;
+}
+
+.page-header{
+    font-size: 35px;
+    font-weight: normal;
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 20px;
+}
+
+.table-container{
+   
+    padding-right: 2%;
+    padding-left: 2%;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+}
+
+.table{
+    border: 1px solid #eeeeee;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-collapse: collapse;
+}
+
+th{
+    line-height: 35px;
+    border-bottom: 3px solid #eeeeee !important;
+}
+
+td{
+    padding-left: 10px;
+  
+}
+
+th, td{
+    border: 1px solid#eeeeee;
+    width: 25%;
+}
+
+.button-edit{
+    text-decoration: none;
+    padding: 15px;
+    padding-left: 36%;
+    padding-right: 36%;
+    font-size: 18px;
+    line-height: 60px;
+    color: white;
+    border-radius: 5px;
+    background-color: #5cb85c;
+}
+
+.button-edit:hover{
+    background: #449d44;
+}
+
+.button-delete{
+    text-decoration: none;
+    padding: 15px;
+    padding-left: 33%;
+    padding-right: 33%;
+    font-size: 18px;
+    line-height: 60px;
+    color: white;
+    border-radius: 5px;
+    background-color: #d9534f;
+}
+
+/* page add*/
+.form-group{
+    display: flex;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.add-label{
+    width: 25%;
+}
+
+.add-input, .add-textarea{
+    border: 1px solid #dfdfe2;
+    border-radius: 5px;
+    line-height: 35px;
+    width: 100%;
+    padding-left: 2%;
+}
+
+.add-input:focus, .add-textarea:focus{
+    border: 1px solid #337ab7;
+    box-shadow: 0px 0px 12px #337ab7;
+}
+
+.button-add{
+    width: 100%;
+    line-height: 45px;
+    font-size: 20px;
+    background: #5cb85c;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    color: white;
 }

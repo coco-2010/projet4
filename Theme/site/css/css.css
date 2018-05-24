@@ -1,0 +1,144 @@
+/*------------------------
+=       GENERAL           =
+-------------------------*/
+
+*{
+    margin: 0;
+    font-family: 'Comic Sans', sans-serif;
+    
+    color: white;
+}
+
+body{
+    height: auto;
+    background: black;
+}
+
+.button{
+    color: black !important;
+    text-decoration: none;
+    padding: 15px;
+    font-size: 18px;
+    line-height: 110px;
+    background:white;
+    border: 1px solid rgb(187, 186, 186);
+}
+
+/*------------------------
+=       HEADER           =
+-------------------------*/
+
+header{
+    background-image: url("../img/img_home.jpg");
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+#container-header{
+    text-align: center;
+    margin: auto;
+    width: 80%;
+    height: 50%;
+    line-height: 750px;
+    position: relative;
+}
+
+@media screen and (min-width: 1600px){
+    #container-header{
+        line-height: 970px;
+    }
+}
+#title{
+    font-size: 30px;
+    display: inline-block;
+    line-height: 2;
+    vertical-align: middle;
+    /*border: 2px solid white;
+    padding: 10%;*/
+}
+
+#register-login{
+    position: absolute;
+    top: 0;
+    line-height: initial;
+    right: 0;
+    
+}
+
+
+/*------------------------
+=       AUTHOR         =
+-------------------------*/
+
+#container-author{
+    width: 70%;
+    display: flex;
+    margin: auto;
+    margin-top: 100px;
+}
+
+#text, #img-author{
+    width: 50%;
+}
+
+#img_author{
+    width: 50px;
+    height: 100px;
+}
+
+/*------------------------
+=       AUTHOR         =
+-------------------------*/
+
+/*------------------------
+=        CONTACT        =
+-------------------------*/
+#container-contact{
+    width: 40%;
+    margin: auto;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+}
+
+#title-contact{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-fields{
+    color: black;
+    line-height: 40px;
+    font-size: 17px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+.submit{
+    color: black !important;
+    padding: 15px;
+    font-size: 18px;
+    background:white;
+    border: 1px solid rgb(187, 186, 186);
+    background-color: grey;
+}
+
+/*------------------------
+=        FOOTER      =
+-------------------------*/
+
+footer{
+    height: 100px;
+    margin-top: 100px;
+}
+
+#footer{
+    width: 50%;
+    line-height: 100%;
+}

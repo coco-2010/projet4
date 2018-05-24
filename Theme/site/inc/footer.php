@@ -1,5 +1,7 @@
     <footer>
-        <div id="footer"></div> 
+        <div id="footer">
+            <p>Copyright - Tous droits reserves</p>
+        </div> 
     </footer>
 
 </body>

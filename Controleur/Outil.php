@@ -9,14 +9,14 @@ class Outil
         return null;
     }
 
-    public function redirect($redirect ='projet4/home'){
+  /*  public function redirect($redirect ='projet4/home'){
         if($redirect == "login")
             echo '<script language="JavaScript" type="text/javascript">window.location.replace("Users/login");</script>';
         elseif ($redirect == "home")
             echo '<script language="JavaScript" type="text/javascript">window.location.replace("projet4/home");</script>';
         else
             echo '<script language="JavaScript" type="text/javascript">window.location.replace("'.$redirect.'");</script>';
-    }
+    }*/
 
     public function alert($type,$msg){
         echo "<div class='alert alert-$type' role='alert'>$msg

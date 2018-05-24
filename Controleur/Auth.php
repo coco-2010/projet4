@@ -1,14 +1,13 @@
 <?php
 
-class Auth{
+class Auth extends Outil{   
 
     public $Users;
     public $salt = 'h58%,f4$gh5e8';
 
     function __construct(){
         $this->Users = new stdClass();
-
-        if($this->Get('id') != null){
+        if($this->Get('id') != false){
             $data = $this->getUserData($_SESSION['id']);
             $this->Users->id                    = $data->id;
             $this->Users->email                 = $data->email;
@@ -19,20 +18,21 @@ class Auth{
     /* Login */
     public function login($dataPost){
         $bdd = new Database();
+        $Outil = new Outil();
         $login = $dataPost['email'];
+
         $bdd->query('SELECT * FROM users WHERE email=:email');
         $bdd->bind(':email', $login);
         $data = $bdd->single();
+            
         if($data != null){
             if (sha1($this->salt.$dataPost['password']) == $data->password) {
                 $_SESSION['id']         = $data->id;
                 $_SESSION['email']      = $data->email;
                 $_SESSION['permission'] = $data->permission;
-
-
                 return true;
-            }else return "Mauvais identifiants";
-        }else return "Compte inconue";
+            }else "Mauvais identifiants";
+        }else echo "Compte inconue";
     }
 
     /* Register */

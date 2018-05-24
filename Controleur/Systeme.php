@@ -6,7 +6,7 @@ class Systeme extends Outil
 
     public  $Config;
 
-    public function __construct($base = null, $folder ,$module, $page, $param){
+    public function __construct($base = null, $folder ,$module, $directory, $page, $param){
         $this->bdd                  = new Database();
         $this->Permission           = new Permission();
 
@@ -18,6 +18,7 @@ class Systeme extends Outil
         $this->Config->base         = $base;
         $this->Config->folder       = $this->verifVar($folder); ;
         $this->Config->module       = $m;
+        $this->Config->directory    = $this->verifVar($directory);
         $this->Config->page         = $this->verifVar($page);
         $this->Config->param        = explode("-", $this->verifVar($param));
 
@@ -59,10 +60,15 @@ class Systeme extends Outil
         $Outil = new Outil();
 
         if($this->Config->page != null){
-            if(file_exists($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/'. $this->Config->folder .'/'. $this->Config->module.'/'. $this->Config->page .'.php'))
-                include($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .''. $this->Config->folder .'/'. $this->Config->module.'/'. $this->Config->page .'.php');
+            if(file_exists($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/'. $this->Config->folder .'/'. $this->Config->module.'/'. $this->Config->page .'.php')){
+                include($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/'. $this->Config->folder .'/'. $this->Config->module.'/'. $this->Config->page .'.php');
+            } 
+            else if (file_exists($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/'. $this->Config->folder .'/'. $this->Config->module .'/'. $this->Config->directory .'/'. $this->Config->page .'.php')){
+                include($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/'. $this->Config->folder .'/'. $this->Config->module .'/'. $this->Config->directory .'/'. $this->Config->page .'.php');
+            }
+                
         }else
-            include($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/'. $this->Config->folder .'/site/home.php');
+            include($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/View/'. $this->Config->module .'/home.php');
     }
     //dipslay login contant
     public function displayContentLogin(){

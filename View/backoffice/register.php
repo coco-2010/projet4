@@ -1,6 +1,7 @@
 <?php
 $form = new Form();
 $Auth = new Auth();
+
 $register = null;
 if(isset($_POST['register'])){
 	

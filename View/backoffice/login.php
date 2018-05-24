@@ -4,7 +4,7 @@ $Auth = new Auth();
 $Outil = new Outil();
 
 
-$login = null;
+//$login = null;
 if(isset($_POST['login'])){
     if($_SESSION['CSRF_token'] == $_POST['CSRF_token']) {
         $login = $Auth->login($_POST);
@@ -16,8 +16,6 @@ if(isset($_POST['login'])){
                 $Cookie->Set('annonce_password', $password, time() + 86400 * 365);
             }
         }
-    }else{
-
     }
 }
 ?>

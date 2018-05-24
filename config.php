@@ -12,6 +12,7 @@ include "Controleur/Cookie.php";
 include "Controleur/Permission.php";
 include "Controleur/form.php";
 include "Controleur/Systeme.php";
+include "Controleur/Chapter.php";
 
 $Auth = new Auth();
 
