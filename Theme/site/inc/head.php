@@ -20,8 +20,10 @@
 
     <link href="Theme/site/css/css.css" rel="stylesheet">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+    <link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet"> 
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+   
 
 </head>
 

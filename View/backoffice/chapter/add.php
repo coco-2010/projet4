@@ -9,7 +9,7 @@ if(isset($_POST['modifier'])){
 ?>
 
 <div class="page-backoffice">
-    <h2 class="page-header">Ajouter un nouveau chapitre</b></h1>
+    <h2 class="page-header">Ajouter un nouveau chapitre</h1>
     
 
     <div class="">
@@ -29,7 +29,7 @@ if(isset($_POST['modifier'])){
                 </div>
                 <div class=" form-group">
                     <label for="description" class="add-label">Description</label>
-                    <textarea class="add-textarea" id="description" name="description" rows="6"></textarea>
+                    <textarea class="add-textarea" class="description" name="description" rows="6"></textarea>
                 </div>
             <button name="modifier" type="submit" value="modifier" class="button-add">Ajouter</button>
         </form>              

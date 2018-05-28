@@ -20,24 +20,26 @@ $form = new Form;
 <section id="author">
     
     <div id="container-author">
-    <h2>Auteur</h2>
-        <div id="text">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit adipisci eveniet quis ad animi, 
-                at quod eos dolor explicabo necessitatibus ipsum impedit a sunt corporis vel, sit iure architecto doloribus! 
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia fugit nemo fugiat? Ad officia id nesciunt facere, 
-                impedit explicabo exercitationem autem officiis, omnis delectus, quibusdam quisquam reiciendis! Necessitatibus, nostrum nesciunt!
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere laborum, non rem est aliquid nisi officiis itaque veniam illo accusantium 
-                sapiente placeat aut perferendis illum saepe assumenda molestias distinctio minima.</p>
-        </div>
-        <div id="img-author">
-            <img src="Theme/site/img/img_author.png" alt="Image jean Forteroche">
+    <h2 id="title-section">Auteur</h2>
+        <div class="row">
+            <div id="text">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit adipisci eveniet quis ad animi, 
+                    at quod eos dolor explicabo necessitatibus ipsum impedit a sunt corporis vel, sit iure architecto doloribus! 
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia fugit nemo fugiat? Ad officia id nesciunt facere, 
+                    impedit explicabo exercitationem autem officiis, omnis delectus, quibusdam quisquam reiciendis! Necessitatibus, nostrum nesciunt!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere laborum, non rem est aliquid nisi officiis itaque veniam illo accusantium 
+                    sapiente placeat aut perferendis illum saepe assumenda molestias distinctio minima.</p>
+            </div>
+            <div id="img-author">
+                <img src="Theme/site/img/img_author.png" alt="Image jean Forteroche">
+            </div>
         </div>
     </div>
 </section>
 
 <section id="chapter">
     <div id="container-chapter">
-        <h2>Les derniers chapitre</h2>
+        <h2 id="title-section">Les derniers chapitre</h2>
         <div id="chapter">
             php
         </div>
@@ -48,7 +50,7 @@ $form = new Form;
     <div id="container-contact">
         <form class="form" method="POST">
             <?= $form->CSRF($_SESSION["CSRF_token"]) ?>
-            <h2 id="title-contact">Me contacter</h2>
+            <h2 id="title-section">Me contacter</h2>
 
             <input name="name" type="text" class="form-fields name" placeholder="Nom / prenom" required autofocus>
 

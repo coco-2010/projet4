@@ -21,17 +21,17 @@
                     <a class="link" href="View/b/home"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
                 <li class="nav-rank1">
-                    <a class="link" href=""><i class="fa fa-book fa-fw"></i> Chapitre<span class="fa fa-angle-left"></span></a>
+                    <a class="link" href="View/b/" onclick="Dashboard.pop();"><i class="fa fa-book fa-fw"></i> Chapitre<span class="fa fa-angle-left"></span></a>
                     <ul class="nav-rank2">
                         <li><a class="link" href="View/b/chapter/listing">Liste</a></li>
                         <li><a class="link" href="View/b/chapter/add">Ajouter</a></li>
                     </ul>
                 </li>
                 <li class="nav-rank1"> 
-                    <a class="link"href=""><i class="fa fa-commenting-o"></i> Commentaire<span class="fa fa-angle-left"></span></a>
+                    <a class="link"href="View/b/"><i class="fa fa-commenting-o"></i> Commentaire<span class="fa fa-angle-left"></span></a>
                     <ul class="nav-rank2">
-                        <li><a class="link" href="View/b/listing">Liste</a></li>
-                        <li><a class="link" href="View/b/add">Ajouter</a></li>
+                        <li><a class="link" href="View/b/comment/listing">Liste</a></li>
+                        <li><a class="link" href="View/b/comment/add">Ajouter</a></li>
                     </ul>
                 </li>
             </ul>

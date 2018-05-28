@@ -119,7 +119,7 @@
          $this->bdd->query('DELETE FROM chapter WHERE chapter.id=:id');
          $this->bdd->bind(':id', $id);
          $this->bdd->execute();
-        // $this->Outil->redirect('b/chevaux/edit/'.$id);
+        // $this->Outil->redirect('View/b/chapter/edit/'.$id);
      }
 
  }

@@ -60,13 +60,14 @@ class Systeme extends Outil
         $Outil = new Outil();
 
         if($this->Config->page != null){
-            if(file_exists($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/'. $this->Config->folder .'/'. $this->Config->module.'/'. $this->Config->page .'.php')){
-                include($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/'. $this->Config->folder .'/'. $this->Config->module.'/'. $this->Config->page .'.php');
-            } 
-            else if (file_exists($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/'. $this->Config->folder .'/'. $this->Config->module .'/'. $this->Config->directory .'/'. $this->Config->page .'.php')){
+            if(file_exists($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/'. $this->Config->folder .'/'. $this->Config->module .'/'. $this->Config->directory .'/'. $this->Config->page .'.php')){
                 include($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/'. $this->Config->folder .'/'. $this->Config->module .'/'. $this->Config->directory .'/'. $this->Config->page .'.php');
-            }
                 
+            }
+            else if (file_exists($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/'. $this->Config->folder .'/'. $this->Config->module.'/'. $this->Config->page .'.php')){
+                include($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/'. $this->Config->folder .'/'. $this->Config->module.'/'. $this->Config->page .'.php');
+                
+            }   
         }else
             include($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/View/'. $this->Config->module .'/home.php');
     }

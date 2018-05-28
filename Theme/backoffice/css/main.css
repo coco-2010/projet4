@@ -126,11 +126,6 @@ li{
     padding-left: 20px;
 }
 
-/*.nav-rank2{
-    visibility: hidden;
-}*/
-
-
 .fa-angle-left{
     right: 5%;
     position: absolute;
@@ -176,7 +171,7 @@ th{
 
 td{
     padding-left: 10px;
-  
+    padding-right: 10px;
 }
 
 th, td{
@@ -196,7 +191,7 @@ th, td{
     background-color: #5cb85c;
 }
 
-.button-edit:hover{
+.button-edit:hover, .button-add:hover{
     background: #449d44;
 }
 
@@ -210,6 +205,10 @@ th, td{
     color: white;
     border-radius: 5px;
     background-color: #d9534f;
+}
+
+.button-delete:hover{
+    background-color: #c9302c;
 }
 
 /* page add*/
@@ -246,4 +245,12 @@ th, td{
     margin-bottom: 20px;
     margin-top: 10px;
     color: white;
+}
+
+/*edit */
+.button-edit-img{
+    text-decoration: none;
+    padding: 12px;
+    padding-left: 30.9vw;
+    padding-right: 30.8vw;
 }

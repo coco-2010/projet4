@@ -4,24 +4,36 @@
 
 *{
     margin: 0;
-    font-family: 'Comic Sans', sans-serif;
     
-    color: white;
+    
+   /* color: white;*/
 }
 
 body{
     height: auto;
-    background: black;
+    background: white;
+    font-family: 'Comic Sans', sans-serif;
 }
 
 .button{
-    color: black !important;
+    color: #0078d7 !important;
     text-decoration: none;
     padding: 15px;
     font-size: 18px;
     line-height: 110px;
     background:white;
     border: 1px solid rgb(187, 186, 186);
+    font-family: initial;
+}
+
+#title-section{
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: normal;
+    font-size: 50px;
+    color: #0078d7;
+    font-family: 'Tangerine', cursive;
+   
 }
 
 /*------------------------
@@ -34,6 +46,9 @@ header{
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
+    border-bottom: 2px solid #0078d7;
+    box-sizing: border-box;
+    color: white;
 }
 
 
@@ -53,10 +68,11 @@ header{
     }
 }
 #title{
-    font-size: 30px;
+    font-size: 60px;
     display: inline-block;
     line-height: 2;
     vertical-align: middle;
+    font-family: 'Tangerine', cursive;
     /*border: 2px solid white;
     padding: 10%;*/
 }
@@ -75,24 +91,33 @@ header{
 -------------------------*/
 
 #container-author{
-    width: 70%;
-    display: flex;
+    width: 80%;
     margin: auto;
     margin-top: 100px;
+    margin-bottom: 100px;
 }
 
-#text, #img-author{
+
+#text{
     width: 50%;
+    margin-right:5%;
 }
 
-#img_author{
-    width: 50px;
-    height: 100px;
+#img-author{
+    width: 30%;
+    margin-left: 10%;
+}
+
+.row{
+    display: flex;
 }
 
 /*------------------------
-=       AUTHOR         =
+=    DERNIER CHAPITRE      =
 -------------------------*/
+#chapter{
+    background: #f5f5f5;
+}
 
 /*------------------------
 =        CONTACT        =
@@ -100,6 +125,7 @@ header{
 #container-contact{
     width: 40%;
     margin: auto;
+    margin-top: 100px;
 }
 
 .form{
@@ -107,10 +133,7 @@ header{
     flex-direction: column;
 }
 
-#title-contact{
-    text-align: center;
-    margin-bottom: 30px;
-}
+
 
 .form-fields{
     color: black;
@@ -136,9 +159,11 @@ header{
 footer{
     height: 100px;
     margin-top: 100px;
+    background: #f5f5f5;
 }
 
 #footer{
     width: 50%;
     line-height: 100%;
+
 }

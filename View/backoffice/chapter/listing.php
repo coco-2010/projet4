@@ -25,9 +25,9 @@ $data = $Chapter->getAllData();
                     echo "<tbody>";
                         echo "<tr>";
                             echo "<td>$value->titre</td>";
-                            echo "<td>$value->description</td>";
-                            echo "<td><a href='b/edit/$value->id' role='button' class='button-edit'>Modifier</a></td>";
-                            echo "<td><a href='b/del/$value->id' role='button' class='button-delete'>Supprimer</a></td>";
+                            echo '<td>'.substr($value->description, 0, 200).'</td>';
+                            echo "<td><a href='View/b/chapter/edit/$value->id' role='button' class='button-edit'>Modifier</a></td>";
+                            echo "<td><a href='View/b/chapter/del/$value->id' role='button' class='button-delete'>Supprimer</a></td>";
                             echo "</tr>";
                     echo "</tbody>";
                 }
