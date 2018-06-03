@@ -8,7 +8,9 @@ $Systeme = new Systeme("projet4/",
     $Outil->GET("module"),
     $Outil->GET("directory"),
     $Outil->GET("page"),
-    $Outil->GET("param")
+    $Outil->GET("param"),
+    $Outil->GET("param2")
+    
 );
 
 

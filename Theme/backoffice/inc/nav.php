@@ -1,3 +1,4 @@
+
 <div id="dashboard">
     <nav id="dashboard-nav">
 
@@ -31,7 +32,6 @@
                     <a class="link"href="View/b/"><i class="fa fa-commenting-o"></i> Commentaire<span class="fa fa-angle-left"></span></a>
                     <ul class="nav-rank2">
                         <li><a class="link" href="View/b/comment/listing">Liste</a></li>
-                        <li><a class="link" href="View/b/comment/add">Ajouter</a></li>
                     </ul>
                 </li>
             </ul>

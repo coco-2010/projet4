@@ -7,6 +7,8 @@
     font-family: 'Comic Sans', sans-serif;
 }
 
+
+
 /* ----------------------------------
 =       BACKOFFICE LOGIN/REGISTER    =
 ------------------------------------*/
@@ -113,7 +115,7 @@ li{
 
 #navigation{
     width: 17%;
-    height: 100vh;
+    height: 150vh;
     background: #f8f8f8;
     font-size: 15px;
     
@@ -193,6 +195,16 @@ th, td{
 
 .button-edit:hover, .button-add:hover{
     background: #449d44;
+}
+
+.button-block{
+    color: black;
+    background: #5e5e6e;
+    width: 100%;
+    line-height: 50px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;
 }
 
 .button-delete{

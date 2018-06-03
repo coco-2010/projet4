@@ -3,23 +3,31 @@
 
      private $bdd;
      private $Outil;
+     private $chapter_id;
      public $msgAlert;
-    // public $paginator;
-     public $id;
+     public $paginator;
 
-     function __construct($action = null){
+     function __construct($param, $action = null){
+         $this->chapter_id   = $param;
          $this->bdd = new Database();
          $this->Outil = new Outil();
          $this->msgAlert = new stdClass();
-        //$this->paginator = new Paginator();
+         $this->paginator = new Paginator();
          if($action == null)
              $this->Null();
      }
 
      public function getAllData(){
-         $this->bdd->query('SELECT * FROM comment');
+         $this->bdd->query('SELECT id, id_chapter, description, author, DATE_FORMAT(date_post, \'Le %d/%m/%Y à %Hh %imin %ss\') AS date_post, report FROM comment WHERE report IS NULL ORDER BY id DESC');
          return $this->bdd->resultset();
      }
+
+     public function getAllDataReport(){
+        $this->bdd->query('SELECT id, id_chapter, description, author, DATE_FORMAT(date_post, \'Le %d/%m/%Y à %Hh %imin %ss\') AS date_post, report FROM comment WHERE report = :report ORDER BY date_post DESC');
+        $this->bdd->bind(':report', 1);
+        return $this->bdd->resultset();
+    }
+
 
      private function Null(){
          $this->getAllData();
@@ -34,17 +42,15 @@
      }
 
      public function getData($id){
-         $this->bdd->query('SELECT * FROM comment WHERE id=:id');
+         $this->bdd->query('SELECT id, id_chapter, description, author, DATE_FORMAT(date_post, \'Le %d/%m/%Y à %Hh %imin %ss\') AS date_post, report FROM comment WHERE id=:id');
          $this->bdd->bind(':id', $id);
          return $this->bdd->single();
      }
 
-    /* public function count(){
-         $this->bdd->query('SELECT count(*) AS total FROM chapter
-        LEFT JOIN rockymountain_img
-        ON rockymountain.id = rockymountain_img.id_rockymountain');
+     public function count(){
+         $this->bdd->query('SELECT count(*) AS total FROM comment');
          return $this->bdd->resultset();
-     }*/
+     }
 
      public function nb(){
          $count = $this->count();
@@ -52,63 +58,61 @@
          return $total;
      }
 
-     public function edit($id, $data){
+     public function edit($id, $report){
          $msg = false;
 
          $this->bdd->query('UPDATE comment SET
-            description=:description
+            report=:report
             WHERE id=:id');
-         $this->bdd->bind(':description',            $data['description']);
+         $this->bdd->bind(':report',            $report);
 
          $this->bdd->bind(':id', $id);
 
          $this->bdd->execute();
 
-         $this->Outil->redirect('b/edit/'.$id);
+         //$this->Outil->redirect('b/edit/'.$id);
 
-         return $msg;
+         return $msg; var_dump($msg);
      }
 
-    /* public function shownAd($param){
-     //    $data = $this->getAllDataImg($param);
+    public function shownAd($param2){
+       $data = $this->getAllDataImg($param2);
          foreach ($data as $keys => $value){
              echo "
-                    <div class='col-lg-4 col-sm-6 portfolio-item'>
-                        <div class='card h-100'>
-                            <img class='card-img-top' src='$value->dir/$value->name' alt=''>
-                            <div class='card-body'>
-                                <h4 class='card-title'>$value->titre</h4>
-                                <p class='card-text'>$value->description</p>
-                            </div>
-                        </div>
+                    <div class='comment'>
+                        <p><span class='author-comment'>$value->author</span> - $value->date_post</p>
+                        <div class='desc-comment'>$value->description</div>
+                        <a class='report' href= 'View/s/chapter/report/$value->id'>Signaler</a>
                     </div>";
          }
-     }*/
+     }
 
-    /* public function getAllDataImg($param){
-         $start = ($param -1)*$this->paginator->itemparPage;
+     public function getAllDataImg($param2){
+         $start = ($param2 -1)*$this->paginator->itemparPage;
 
-         $this->bdd->query('SELECT * FROM rockymountain
-        LEFT JOIN rockymountain_img
-        ON rockymountain.id = rockymountain_img.id_rockymountain
-        ORDER BY rockymountain.id DESC
+        $this->bdd->query('SELECT id, id_chapter, description, author, DATE_FORMAT(date_post, \'Le %d/%m/%Y à %Hh %imin %ss\') AS date_post, report FROM comment
+        WHERE id_chapter=:id_chapter
+        ORDER BY id DESC
         LIMIT  12 OFFSET :offset');
+         $this->bdd->bind(':id_chapter', $this->chapter_id);
          $this->bdd->bind(':offset', $start, PDO::PARAM_INT);
 
          return $this->bdd->resultset();
-     }*/
+     }
 
-     public function add($data){
-         $msg = false;
+     public function add($data, $author, $report){
+        $msg = false;
+        $this->bdd->query('INSERT INTO comment
+        (id_chapter, description, author, date_post, report)
+    VALUES (:id_chapter, :description,:author, NOW(), :report)');
+        $this->bdd->bind(':id_chapter',             $this->chapter_id); 
+        $this->bdd->bind(':description',            $data['description']);
+        $this->bdd->bind(':author',                 $author);
+        $this->bdd->bind(':report',                 $report);
 
-         $this->bdd->query('INSERT INTO comment
-         (description)
-        VALUES (:description)');
-         $this->bdd->bind(':description',            $data['description']);
+        $this->bdd->execute();
 
-         $this->bdd->execute();
-
-         return $msg;
+        return $msg;
      }
 
      public function delete($id){

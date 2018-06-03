@@ -9,9 +9,10 @@ class Auth extends Outil{
         $this->Users = new stdClass();
         if($this->Get('id') != false){
             $data = $this->getUserData($_SESSION['id']);
+            $this->Users->permission            = json_decode($data->permission);
             $this->Users->id                    = $data->id;
             $this->Users->email                 = $data->email;
-            $this->Users->permission            = json_decode($data->permission);
+            
         }
     }
 
@@ -27,9 +28,10 @@ class Auth extends Outil{
             
         if($data != null){
             if (sha1($this->salt.$dataPost['password']) == $data->password) {
+                $_SESSION['permission'] = $data->permission;
                 $_SESSION['id']         = $data->id;
                 $_SESSION['email']      = $data->email;
-                $_SESSION['permission'] = $data->permission;
+                
                 return true;
             }else "Mauvais identifiants";
         }else echo "Compte inconue";

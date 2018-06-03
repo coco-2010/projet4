@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Hernea
- * Date: 12/12/2017
- * Time: 10:51
- */
 
 class Permission
 {

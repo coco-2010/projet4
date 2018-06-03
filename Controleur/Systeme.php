@@ -6,7 +6,7 @@ class Systeme extends Outil
 
     public  $Config;
 
-    public function __construct($base = null, $folder ,$module, $directory, $page, $param){
+    public function __construct($base = null, $folder ,$module, $directory, $page, $param, $param2){
         $this->bdd                  = new Database();
         $this->Permission           = new Permission();
 
@@ -21,6 +21,7 @@ class Systeme extends Outil
         $this->Config->directory    = $this->verifVar($directory);
         $this->Config->page         = $this->verifVar($page);
         $this->Config->param        = explode("-", $this->verifVar($param));
+        $this->Config->param2       = explode("-", $this->verifVar($param2));
 
         $this->Config->theme        = $m ;
 
@@ -62,12 +63,7 @@ class Systeme extends Outil
         if($this->Config->page != null){
             if(file_exists($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/'. $this->Config->folder .'/'. $this->Config->module .'/'. $this->Config->directory .'/'. $this->Config->page .'.php')){
                 include($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/'. $this->Config->folder .'/'. $this->Config->module .'/'. $this->Config->directory .'/'. $this->Config->page .'.php');
-                
             }
-            else if (file_exists($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/'. $this->Config->folder .'/'. $this->Config->module.'/'. $this->Config->page .'.php')){
-                include($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/'. $this->Config->folder .'/'. $this->Config->module.'/'. $this->Config->page .'.php');
-                
-            }   
         }else
             include($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/View/'. $this->Config->module .'/home.php');
     }

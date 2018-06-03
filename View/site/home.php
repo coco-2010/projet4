@@ -1,17 +1,17 @@
 <?php
 $form = new Form;
+$Chapter = new Chapter();
 ?>
-
-<header>
+<header id="header-home">
     <div id="container-header">
         <div id="title">
             <h1>Un billet simple pour l'alaska</h1>
             <p>Jean Forteroche</p>
-            <a class="button" href="View/site/chapitre">Voir les chapitres</a>
+            <a class="button" href="View/s/chapter/chapter">Voir les chapitres</a>
         </div>
         <div id="register-login">
-            <a class="button" href="View/site/inscription">Inscription</a>
-            <a class="button" href="View/site/login">Connexion</a>
+            <a class="button" href="View/s/register">Inscription</a>
+            <a class="button" href="View/s/login">Connexion</a>
         </div>
         
     </div>
@@ -23,12 +23,7 @@ $form = new Form;
     <h2 id="title-section">Auteur</h2>
         <div class="row">
             <div id="text">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit adipisci eveniet quis ad animi, 
-                    at quod eos dolor explicabo necessitatibus ipsum impedit a sunt corporis vel, sit iure architecto doloribus! 
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia fugit nemo fugiat? Ad officia id nesciunt facere, 
-                    impedit explicabo exercitationem autem officiis, omnis delectus, quibusdam quisquam reiciendis! Necessitatibus, nostrum nesciunt!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere laborum, non rem est aliquid nisi officiis itaque veniam illo accusantium 
-                    sapiente placeat aut perferendis illum saepe assumenda molestias distinctio minima.</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus eveniet incidunt ad aliquam corporis, sunt qui tempore assumenda totam cupiditate aspernatur, quaerat odit maiores sapiente eligendi tempora. Deserunt, eos eveniet. </p>
             </div>
             <div id="img-author">
                 <img src="Theme/site/img/img_author.png" alt="Image jean Forteroche">
@@ -39,9 +34,9 @@ $form = new Form;
 
 <section id="chapter">
     <div id="container-chapter">
-        <h2 id="title-section">Les derniers chapitre</h2>
-        <div id="chapter">
-            php
+        <h2 id="title-section">Les derniers chapitres</h2>
+        <div id="last-chapter-all">
+            <?php $Chapter->showLastChapter();?>
         </div>
     </div>
 </section>
