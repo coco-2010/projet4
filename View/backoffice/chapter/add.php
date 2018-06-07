@@ -15,8 +15,9 @@ if(isset($_POST['modifier'])){
     <div class="">
         <div class="alert">
             <?php
-               if (isset($_POST['modifier'])){
-                $Chapter->shownAlert();}
+                if (isset($_POST['modifier'])){
+                    $Chapter->shownAlert();
+                }
             ?>
         </div>
     </div>

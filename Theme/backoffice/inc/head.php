@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="Theme/site/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
 
-    
     <script type="text/javascript" src="Theme/backoffice/tinymce/tinymce/tinymce.min.js"></script>
     <script type="text/javascript">
         tinymce.init({

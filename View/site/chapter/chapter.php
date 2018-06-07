@@ -20,10 +20,20 @@ $Paginator->total = $Chapter->nb();
         </div>
     </div>
 </header>
-
+ 
 <section>
     <div id="container-chapter-all">
-        <?php $Chapter->shownAd($param);?>
+    <?php $allChapter = $Chapter->shownAd($param);
+    foreach ($allChapter as $keys => $value){
+        echo "<a href='View/s/chapter/see/$value->id_chapter' class='s-chapter'>
+            <img class='s-card-img' src='$value->dir/$value->name' alt=''>
+            <div class='s-text-chapter'>
+                <h4 class=''>$value->titre</h4>";
+        echo'       <p>'.substr($value->description, 0, 722).' ...</p>
+                <p class="see-rest">Voir la suite</p>
+            </div>
+        </a>';
+    }?>
     </div>
     <?php $Paginator->paginate($param, $param2, $link);?>
-</section>
+</section> 

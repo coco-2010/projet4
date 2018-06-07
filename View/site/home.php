@@ -1,6 +1,12 @@
 <?php
 $form = new Form;
 $Chapter = new Chapter();
+$Outil= new Outil();
+if(isset($_POST)){
+     $Outil->contact($_POST);
+
+}
+
 ?>
 <header id="header-home">
     <div id="container-header">
@@ -26,7 +32,7 @@ $Chapter = new Chapter();
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus eveniet incidunt ad aliquam corporis, sunt qui tempore assumenda totam cupiditate aspernatur, quaerat odit maiores sapiente eligendi tempora. Deserunt, eos eveniet. </p>
             </div>
             <div id="img-author">
-                <img src="Theme/site/img/img_author.png" alt="Image jean Forteroche">
+                <img id="img" src="Theme/site/img/img_author.jpg" alt="Image jean Forteroche">
             </div>
         </div>
     </div>
@@ -36,7 +42,19 @@ $Chapter = new Chapter();
     <div id="container-chapter">
         <h2 id="title-section">Les derniers chapitres</h2>
         <div id="last-chapter-all">
-            <?php $Chapter->showLastChapter();?>
+            <?php $lastChapter = $Chapter->showLastChapter();
+            foreach ($lastChapter as $keys => $value){
+                echo "
+                    <a href='View/s/chapter/see/$value->id_chapter' class='s-last-chapter'>
+                        <img src='$value->dir/$value->name' class='img-last-chapter' alt=''>
+                        <div class='s-text-last-chapter' >
+                            <h2>$value->titre</h2>";
+                echo '      <p>'.substr($value->description, 0, 100).'...</p>
+                            <p class="see-rest">Voir la suite</p> 
+                        </div>
+                    </a>
+                ';
+            }?>
         </div>
     </div>
 </section>

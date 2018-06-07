@@ -126,6 +126,7 @@ body{
 
 #img-author{
     width: 100%;
+    
 }
 
 @media screen and (min-width:768px){
@@ -134,13 +135,17 @@ body{
     }
     #text{
         width: 50%;
-        margin-right:5%;
         margin-bottom: 0;
     }
     #img-author{
         width: 30%;
         margin-left: 10%;
     }
+}
+
+#img{
+    border: 2px solid #d8d7d7;
+    border-radius: 5px;
 }
 
 /*------------------------

@@ -1,6 +1,6 @@
 <?php
-
-$Comment = new Comment();
+$param = null;
+$Comment = new Comment($param);
 
 $id =$Systeme->Config->param[0];
 $report = null;

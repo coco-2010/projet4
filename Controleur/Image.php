@@ -1,4 +1,5 @@
 <?php
+require "Model/Mod_image.php";
 class Image extends Outil
 {
     private $bdd;
@@ -13,20 +14,18 @@ class Image extends Outil
     public $post;
 
     public function __construct($id,$dir, $action = null){
-        $this->bdd = new Database();
-
+        $this->mod_image = new Mod_image();
         $this->chapter_id   = $id;
         $this->img_dir      = "$dir/$id";
         $this->img_count    = $this->count();
         $this->msgAlert = new stdClass();
-
         if($action == null)
-            $this->Null();
+        $this->Null();
     }
 
     private function Null(){
-        $this->getDataImg();
-
+        $this->file = $this->mod_image->getDataImg($this->chapter_id);
+        
         if($this->img_count == 0){
             $this->msgAlert->type = "danger";
             $this->msgAlert->msg = "Aucune image trouvée";
@@ -34,14 +33,12 @@ class Image extends Outil
             $this->msgAlert->type = "info ";
             $this->msgAlert->msg = "$this->img_count images trouvées";
         }
+        return $this->file;
     }
 
-    private function getDataImg(){
-        $this->bdd->query('SELECT * FROM chapter_img WHERE id_chapter=:id_chapter');
-        $this->bdd->bind(':id_chapter', $this->chapter_id);
-        $this->file = $this->bdd->resultset();
+    public function delete(){
+        $this->mod_chapter->delete($this->chapter_id);
     }
-
     public function shownAlert(){
         if(isset($this->msgAlert->type))
             $this->alert($this->msgAlert->type,$this->msgAlert->msg);
@@ -66,30 +63,9 @@ class Image extends Outil
             $resultat = move_uploaded_file($file['tmp_name'],$dire);
 
             if ($resultat)
-                $this->bddAddImage($this->img_dir,"$nom.$extension",$this->chapter_id,$extension);
+                $this->mod_image->bddAddImage($this->img_dir,"$nom.$extension",$this->chapter_id,$extension);
 
         }
-    }
-
-    public function bddAddImage($dir,$name,$chapter_id,$type){
-
-        $this->bdd->query('INSERT INTO chapter_img (id_chapter, name, dir, type) VALUES (:id_chapter, :name, :dir, :type)');
-        $this->bdd->bind(':id_chapter',             $chapter_id);
-        $this->bdd->bind(':name',                   $name);
-        $this->bdd->bind(':dir',                    $dir);
-        $this->bdd->bind(':type',                   $type);
-        $this->bdd->execute();
-        $this->msgAlert->type = "success ";
-        $this->msgAlert->msg = "Image correctement ajoutée";
-    }
-
-
-    public function delete(){
-        var_dump($this->chapter_id);
-        $this->bdd->query('DELETE FROM chapter_img WHERE id= :id');
-        $this->bdd->bind(':id', $this->chapter_id);
-        $this->bdd->execute();
-        //$this->Outil->redirect('b/chevaux/edit/'.$this->chevaux_id);
     }
 
 }

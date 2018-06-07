@@ -9,16 +9,11 @@ $Comment = new Comment($param);
 $Paginator = new Paginator();
 $report = null;
 //$author = "Visiteur";
-if( isset($_SESSION['name'])){
-    $author = $_SESSION['name'];
-}
-else{
-    $author = 'Visiteur';
-}
+
 
 $comment = null;
 if(isset($_POST['modifier'])){
-    $comment = $Comment->add($_POST, $author, $report);
+    $comment = $Comment->add($_POST, $report);
 }
 
 //nb de carte
@@ -39,13 +34,22 @@ $Paginator->total = $Comment->nb();
 
 <section>
     <div>
-        <?php $Chapter->shownDetailAd($Systeme->Config->param[0]);?>
+        <?php $detailChapter = $Chapter->shownDetailAd($Systeme->Config->param[0]);
+        foreach ($detailChapter as $keys => $value){
+            echo "
+                <h2 id='title-see-detail'>$value->titre</h2>
+                <img class=\"img-responsive\" id='img-see-detail' src='$value->dir/$value->name' alt=''>
+                <div id='container-text-see'>
+                <div id='text-see-detail'>$value->description</div>
+                <p id='author-see-detail'>Jean Forteroche</p>
+                </div>"; 
+        }?>
     </div>
 </section>
 
 <section>
     
-</section>
+</section> 
 
 <section id="section-comment">
     <div class="table-container">
@@ -58,6 +62,14 @@ $Paginator->total = $Comment->nb();
         </form>              
     </div>
 
-    <?php $Comment->shownAd($param2); ?>
+    <?php $data = $Comment->shownAd($param2); 
+    foreach ($data as $keys => $value){
+        echo "
+               <div class='comment'>
+                   <p><span class='author-comment'>$value->author</span> - $value->date_post</p>
+                   <div class='desc-comment'>$value->description</div>
+                   <a class='report' href= 'View/s/chapter/report/$value->id'>Signaler</a>
+               </div>";
+    }?>
     <?php $Paginator->paginate($param,$param2,$link); ?>
 </section>

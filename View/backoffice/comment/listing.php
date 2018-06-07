@@ -13,6 +13,7 @@ $data_report = $Comment->getAllDataReport();
     <h1 class="page-header">Liste Commentaire</h1>
  
     <div class="table-container">
+        <h2>Commentaire signales</h2>
         <table width="100%" class="table" id="">
             <thead>
                 <tr>
@@ -38,6 +39,21 @@ $data_report = $Comment->getAllDataReport();
                             echo "</tr>";
                     echo "</tbody>"; 
                 }
+            ?>
+        </table>
+        <table>
+            <h2>Commentaires</h2>
+        <table width="100%" class="table" id="">
+            <thead>
+                <tr>
+                    <th style='width: 12.5%;'>Author</th>
+                    <th style='width: 12.5%;'>Date</th>
+                    <th>Commentaire</th>
+                    <th>Modifier</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <?php
                 foreach ($data as $key => $value){
                     echo "<tbody>";
                         echo "<tr>";
