@@ -1,28 +1,3 @@
-<?php
-
-//param
-$param = (isset($_GET['param']))?intval($_GET['param']):1;
-$param2 = (isset($_GET['param2']))?intval($_GET['param2']):1;
-
-$Chapter= new Chapter();
-$Comment = new Comment($param);
-$Paginator = new Paginator();
-$report = null;
-//$author = "Visiteur";
-
-
-$comment = null;
-if(isset($_POST['modifier'])){
-    $comment = $Comment->add($_POST, $report);
-}
-
-//nb de carte
-$Paginator->total = $Comment->nb();
-
-// $this->link
-    $link = "View/s/chapter/see";
-?>
-
 <header id="header-chapter">
     <div id="container-header-chapter">
         <div  id="title-chapter">
@@ -34,7 +9,7 @@ $Paginator->total = $Comment->nb();
 
 <section>
     <div>
-        <?php $detailChapter = $Chapter->shownDetailAd($Systeme->Config->param[0]);
+        <?php 
         foreach ($detailChapter as $keys => $value){
             echo "
                 <h2 id='title-see-detail'>$value->titre</h2>
@@ -50,26 +25,37 @@ $Paginator->total = $Comment->nb();
 <section>
     
 </section> 
-
+    
 <section id="section-comment">
+    <div class="">
+        <div class="alert">
+            <?php echo "<div class='alert alert-$type' role='alert'>$msg
+                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                <span aria-hidden='true'>&times;</span>
+                </button></div>";
+            ?>
+        </div>
+    </div>
     <div class="table-container">
         <form method="POST">
-                <div id="form-comment">
-                    <label for="description" id="label-comment">Laisser un commentaire</label>
-                    <textarea class="add-textarea" id="description" name="description" rows="4" cols="7"></textarea>
-                </div>
+            <div id="form-comment">
+                <h3>Laisser un commentaire</h3>
+                <label for="pseudo">Pseudo</label>
+                <input type="text" name="pseudo">
+                <label for="description" id="label-comment">Commentaire</label>
+                <textarea class="add-textarea" id="description" name="description" rows="4" cols="7" required></textarea>
+            </div>
             <button name="modifier" type="submit" value="modifier" class="submit">Ajouter</button>
         </form>              
     </div>
 
-    <?php $data = $Comment->shownAd($param2); 
+    <?php 
     foreach ($data as $keys => $value){
         echo "
                <div class='comment'>
                    <p><span class='author-comment'>$value->author</span> - $value->date_post</p>
                    <div class='desc-comment'>$value->description</div>
-                   <a class='report' href= 'View/s/chapter/report/$value->id'>Signaler</a>
+                   <a class='report' href= 's/comment/reportComment/$value->id'>Signaler</a>
                </div>";
     }?>
-    <?php $Paginator->paginate($param,$param2,$link); ?>
 </section>

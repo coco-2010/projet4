@@ -1,15 +1,5 @@
-<?php
-
-$Chapter = new Chapter();
-
-$data = $Chapter->getAllData();
-
-?>
-
-
 <div class="page-backoffice">
     <h1 class="page-header">Liste Chapitre</h1>
- 
     <div class="table-container">
         <table width="100%" class="table" id="">
             <thead>
@@ -26,8 +16,8 @@ $data = $Chapter->getAllData();
                         echo "<tr>";
                             echo "<td>$value->titre</td>";
                             echo '<td>'.substr($value->description, 0, 200).'</td>';
-                            echo "<td><a href='View/b/chapter/edit/$value->id' role='button' class='button-edit'>Modifier</a></td>";
-                            echo "<td><a href='View/b/chapter/del/$value->id' role='button' class='button-delete'>Supprimer</a></td>";
+                            echo "<td><a href='b/chapter/editChapter/$value->id' role='button' class='button-edit'>Modifier</a></td>";
+                            echo "<td><a href='b/chapter/delChapter/$value->id' role='button' class='button-delete'>Supprimer</a></td>";
                             echo "</tr>";
                     echo "</tbody>";
                 }

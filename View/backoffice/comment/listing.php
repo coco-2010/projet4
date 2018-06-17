@@ -1,17 +1,7 @@
-<?php
-
-$param = null;
-$Comment = new Comment($param);
-
-$data = $Comment->getAllData();
-$data_report = $Comment->getAllDataReport();
-
-?>
-
-
 <div class="page-backoffice">
     <h1 class="page-header">Liste Commentaire</h1>
- 
+    
+    <?php //$Paginator->paginate($param, $param2, $link);?>
     <div class="table-container">
         <h2>Commentaire signales</h2>
         <table width="100%" class="table" id="">
@@ -25,17 +15,14 @@ $data_report = $Comment->getAllDataReport();
                 </tr>
             </thead>
             <?php
-                foreach ($data_report as $key => $value){
+                foreach ($this->data_report as $key => $value){
                     echo "<tbody>";
                         echo "<tr>";
                             echo "<td style='width:12.5%;'>$value->author";
                             echo "<td style='width: 12.5%;'>$value->date_post";
                             echo '<td>'.substr($value->description, 0, 200).'</td>';
-                            if ($value->report == 1){echo "<td><a href='View/b/comment/edit/$value->id' role='button' class='button-edit'>Maintenir</a></td>";}
-                            else{
-                                echo "<td><button class='button-block'>Maintenir</button></td>";
-                            }
-                            echo "<td><a href='View/b/comment/del/$value->id' role='button' class='button-delete'>Supprimer</a></td>";
+                            if ($value->report == 1){echo "<td><a href='b/comment/editComment/$value->id' role='button' class='button-edit'>Maintenir</a></td>";}
+                            echo "<td><a href='b/comment/delComment/$value->id' role='button' class='button-delete'>Supprimer</a></td>";
                             echo "</tr>";
                     echo "</tbody>"; 
                 }
@@ -54,17 +41,15 @@ $data_report = $Comment->getAllDataReport();
                 </tr>
             </thead>
             <?php
-                foreach ($data as $key => $value){
+                foreach ($this->data as $key => $value){
                     echo "<tbody>";
                         echo "<tr>";
                             echo "<td style='width:12.5%;'>$value->author";
                             echo "<td style='width: 12.5%;'>$value->date_post";
                             echo '<td>'.substr($value->description, 0, 200).'</td>';
-                            if ($value->report == 1){echo "<td><a href='View/b/comment/edit/$value->id' role='button' class='button-edit'>Maintenir</a></td>";}
-                            else{
-                                echo "<td><button class='button-block'>Maintenir</button></td>";
-                            }
-                            echo "<td><a href='View/b/comment/del/$value->id' role='button' class='button-delete'>Supprimer</a></td>";
+                            echo "<td><button class='button-block'>Maintenir</button></td>";
+                            
+                            echo "<td><a href='b/comment/delComment/$value->id' role='button' class='button-delete'>Supprimer</a></td>";
                             echo "</tr>";
                     echo "</tbody>"; 
                 }

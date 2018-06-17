@@ -15,8 +15,12 @@
 
     }
 
-    public function getAllData(){
-        $this->bdd->query('SELECT * FROM chapter ORDER BY id DESC');
+    public function getAllData($param){
+        $start = ($param -1)*$this->paginator->itemparPage;
+        $this->bdd->query('SELECT * FROM chapter 
+        ORDER BY id DESC
+        LIMIT 12 OFFSET :offset');
+        $this->bdd->bind(':offset', $start, PDO::PARAM_INT);
         return $this->bdd->resultset();
     }
 
@@ -24,6 +28,11 @@
         $this->bdd->query('SELECT * FROM chapter WHERE id=:id');
         $this->bdd->bind(':id', $id);
         return $this->bdd->single();
+    }
+
+    public function bcount(){
+        $this->bdd->query('SELECT count(*) AS total FROM chapter');
+        return $this->bdd->resultset();
     }
 
     public function count(){
@@ -47,19 +56,17 @@
 
         $this->bdd->execute();
 
-        $this->Outil->redirect('b/edit/'.$id);
-
         return $msg;
     }
 
-    public function add($data){
+    public function add($post, $title){
         $msg = false;
 
         $this->bdd->query('INSERT INTO chapter
             (titre, description) 
         VALUES (:titre, :description)');
-        $this->bdd->bind(':titre',                  $data['titre']);
-        $this->bdd->bind(':description',            $data['description']);
+        $this->bdd->bind(':titre',                  $title);
+        $this->bdd->bind(':description',            $post);
 
         $this->bdd->execute();
 
@@ -71,9 +78,19 @@
         $this->bdd->query('DELETE FROM chapter WHERE chapter.id=:id');
         $this->bdd->bind(':id', $id);
         $this->bdd->execute();
-    // $this->Outil->redirect('View/b/chapter/edit/'.$id);
     }
 
+    public function deleteComment($id_chapter){
+        $this->bdd->query('DELETE FROM comment WHERE id_chapter=:id_chapter');
+        $this->bdd->bind(':id_chapter', $id_chapter);
+        $this->bdd->execute();
+    }
+
+    public function deleteImage($id_chapter){
+        $this->bdd->query('DELETE FROM chapter_img WHERE id_chapter=:id_chapter');
+        $this->bdd->bind(':id_chapter', $id_chapter);
+        $this->bdd->execute();
+    }
     
 
     public function getAllDataImg($param){

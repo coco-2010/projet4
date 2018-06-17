@@ -55,12 +55,9 @@ class Paginator {
         }
 
         //pagination
-        if( $this->total >= 12){
-            $int = floor($this->total / 12);
-        }
-        else{
+       
             $int = ceil($this->total / 12);
-        }
+        
         if ($int > $this->range){
             $start = ($this->currentpage <= $this->range)?1:($this->currentpage - $this->range);
             $end   = ($int - $this->currentpage >= $this->range)?($this->currentpage+$this->range): $int;

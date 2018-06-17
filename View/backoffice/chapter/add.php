@@ -1,23 +1,13 @@
-<?php
-
-$Chapter = new Chapter();
-
-$chapter = null;
-if(isset($_POST['modifier'])){
-    $chapter = $Chapter->add($_POST);
-}
-?>
-
 <div class="page-backoffice">
     <h2 class="page-header">Ajouter un nouveau chapitre</h1>
     
 
     <div class="">
         <div class="alert">
-            <?php
-                if (isset($_POST['modifier'])){
-                    $Chapter->shownAlert();
-                }
+             <?php echo "<div class='alert alert-$this->type' role='alert'>$this->msg
+                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                <span aria-hidden='true'>&times;</span>
+                </button></div>";
             ?>
         </div>
     </div>

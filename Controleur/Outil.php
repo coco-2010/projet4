@@ -9,14 +9,14 @@ class Outil
         return null;
     }
 
-  /*  public function redirect($redirect ='projet4/home'){
+    public function redirect($redirect){var_dump($redirect);
         if($redirect == "login")
             echo '<script language="JavaScript" type="text/javascript">window.location.replace("Users/login");</script>';
         elseif ($redirect == "home")
             echo '<script language="JavaScript" type="text/javascript">window.location.replace("projet4/home");</script>';
         else
             echo '<script language="JavaScript" type="text/javascript">window.location.replace("'.$redirect.'");</script>';
-    }*/
+    }
 
     public function alert($type,$msg){
         echo "<div class='alert alert-$type' role='alert'>$msg
@@ -32,23 +32,30 @@ class Outil
     }
 
    public function contact($data){
-        if(!empty ($data)){/*
-            var_dump($data);
-            require 'Theme/site/mailgun-php/vendor/autoload.php';
-            
-            # Instantiate the client.
-            ///$client = new \Http\Adapter\Guzzle6\Client();
-            //$client->getHttpClient()->setDefaultOption('verify', false);
-            $mgClient = new Mailgun('key-3f21db38b1222d8537d41ba829844804', new \Http\Adapter\Guzzle6\Client());
-            $domain = "projet4";  var_dump(openssl_get_cert_locations());
+        if(!empty ($data)){
+            var_dump($data['name']);
+            $name = trim($data['name']);
+            $subject = trim($data['subject']);
+            $email = trim($data['email']); var_dump($data['email']);
+            $message = trim($data['textarea']);
 
-            # Make the call to the client.
-            $result = $mgClient->sendMessage($domain, array(
-                'from'    => 'Excited User <mailgun@projet4>',
-                'to'      => 'Baz <coralie.leoty@gmail.com>',
-                'subject' => $data['name'],
-                'text'    => $data['textarea']
-            ));*/
+            
+            /* Destinataire (votre adresse e-mail) */
+            $to = 'coralie.leoty@gmail.com';
+            
+            /* Construction du message */
+            $msg  = 'Bonjour,'."\r\n\r\n";
+            $msg .= 'Ce mail a été envoyé depuis creepdev.fr/projet4 par '.$name."\r\n\r\n";
+            $msg .= 'Voici le message qui vous est adressé :'."\r\n";
+            $msg .= '***************************'."\r\n\r\n";
+            $msg .= $message."\r\n\r\n";
+            $msg .= '***************************'."\r\n";
+            
+            /* En-têtes de l'e-mail */
+            $headers = "From: \"$name\"<$email>";
+            var_dump($headers);
+            /* Envoi de l'e-mail */
+            mail($to, $subject, $msg, $headers);
         }
     }
 }

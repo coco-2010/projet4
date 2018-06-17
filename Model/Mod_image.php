@@ -5,16 +5,12 @@ class Mod_image extends Outil
 
     private $chapter_id;
     private $img_dir;
-    private $img_count;
-    private $extensions_valides = array( 'jpg' , 'jpeg' , 'png' );
 
-    public $msgAlert;
     public $file;
     public $post;
 
     public function __construct(){
         $this->bdd = new Database();
-        $this->msgAlert = new stdClass();
 
     }
 
@@ -33,16 +29,13 @@ class Mod_image extends Outil
         $this->bdd->bind(':dir',                    $dir);
         $this->bdd->bind(':type',                   $type);
         $this->bdd->execute();
-        $this->msgAlert->type = "success ";
-        $this->msgAlert->msg = "Image correctement ajoutée";
     }
 
 
     public function delete($id){
         $this->bdd->query('DELETE FROM chapter_img WHERE id= :id');
-        $this->bdd->bind(':id', $this->chapter_id);
+        $this->bdd->bind(':id', $id);
         $this->bdd->execute();
-        //$this->Outil->redirect('b/chevaux/edit/'.$this->chevaux_id);
     }
 
 }

@@ -6,49 +6,106 @@ class Systeme extends Outil
 
     public  $Config;
 
-    public function __construct($base = null, $folder ,$module, $directory, $page, $param, $param2){
+
+    public function __construct($base = null, $folder ,$module, $page, $param, $param2){
         $this->bdd                  = new Database();
-        $this->Permission           = new Permission();
 
-        if($module == null){$module = "site";}
 
-        $m = $this->selectFolder($this->verifVar($module));
+        $f = $this->selectFolder($this->verifVar($folder));
 
         $this->Config               = new stdClass();
         $this->Config->base         = $base;
-        $this->Config->folder       = $this->verifVar($folder); ;
-        $this->Config->module       = $m;
-        $this->Config->directory    = $this->verifVar($directory);
+        $this->Config->folder       = $f;
+        $this->Config->module       = $this->verifVar($module);
         $this->Config->page         = $this->verifVar($page);
         $this->Config->param        = explode("-", $this->verifVar($param));
         $this->Config->param2       = explode("-", $this->verifVar($param2));
 
-        $this->Config->theme        = $m ;
+        $this->Config->theme        = $f ;
+
+        if (!isset($page) && $folder ==  "s" || !isset( $folder) ){
+            $lastChapter = new lastChapter;
+            $Outil = new Outil;
+        }
+       
+        else{
+            switch($page) {
+                //site
+                case "shownChapter": 
+                    $shownChapter = new shownChapter();
+                    break;
+                case "showDetailChapter": 
+                    $showDetailChapter= new showDetailChapter();
+                    break;
+                case "reportComment":
+                    $reportComment = new reportComment();
+                    break;
+
+                //backoffice
+                case "loginAuth":
+                    $loginAuth = new loginAuth();
+                    break;
+                case "disconnect":
+                    $disconnection = new disconnection();
+                    break;
+                case "addChapter":
+                    $addChapter = new addChapter();
+                    break;
+                case "delChapter":
+                    $delChapter = new delChapter();
+                    break;
+                case "editChapter": 
+                    $editChapter  = new editChapter();
+                    break;
+                case "listingChapter":
+                    $listingChapter = new listingChapter();
+                    break; 
+                
+                case "image":
+                    $Image = new Image();
+                    break;
+                case "imageAdd":
+                    $imageAdd = new imageAdd();
+                    break;
+                case "imageDel":
+                    $imageDel = new imageDel();
+                    break;
+                case "listingComment": 
+                    $listingComment = new listingComment();
+                    break;
+                case "editComment":
+                    $editComment = new editComment();
+                    break;
+                case "delComment":
+                    $delComment = new delComment();
+                    break;
+            }
+        }
 
         $this->allowDisplay();
     }
 
-    private function selectFolder($module){
-        if($module == "b")return "backoffice";
+    private function selectFolder($folder){
+        if($folder == "b") return "backoffice";
         else return "site";
     }
 
     public function allowDisplay(){
         include "Theme/". $this->Config->theme ."/inc/head.php";
 
-        if ($this->Config->module == "backoffice"){
-            if($this->Permission->access("backoffice") == true){
+        if ($this->Config->folder == "backoffice"){
+            if(isset($_SESSION['email'])){
                 $this->displayHeader();
                 $this->displayContent();
                 $this->displayFooter();
             }else
                 $this->displayContentLogin();
-        }elseif ($this->Config->module == "site"){
+        }elseif ($this->Config->folder == "site"){
             $this->displayHeader();
             $this->displayContent();
             $this->displayFooter();
         }else
-            include($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/'. $this->Config->folder .'/site/home.php');
+            include($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'Controleur/'. $this->Config->folder .'/home/lastChapter.php'); 
     }
 
     //Affiche le Header
@@ -61,15 +118,28 @@ class Systeme extends Outil
         $Outil = new Outil();
 
         if($this->Config->page != null){
-            if(file_exists($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/'. $this->Config->folder .'/'. $this->Config->module .'/'. $this->Config->directory .'/'. $this->Config->page .'.php')){
-                include($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/'. $this->Config->folder .'/'. $this->Config->module .'/'. $this->Config->directory .'/'. $this->Config->page .'.php');
+            if(file_exists($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'Controleur/'. $this->Config->folder .'/'. $this->Config->module .'/'. $this->Config->page .'.php')){
+                include_once($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'Controleur/'. $this->Config->folder .'/'. $this->Config->module .'/'. $this->Config->page .'.php');
             }
-        }else
-            include($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/View/'. $this->Config->module .'/home.php');
+            else{
+                $redirect = "s/home/lastChapter";
+                $Outil->redirect();
+                include_once($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'Controleur/site/home/lastChapter.php');var_dump(1);
+            }
+                
+        }else{
+            if($this->Config->folder == "backoffice"){
+                include_once($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'View/'. $this->Config->folder .'/home.php');
+            }
+            else
+                include_once($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'Controleur/site/home/lastChapter.php');
+        }
+
+            
     }
     //dipslay login contant
     public function displayContentLogin(){
-        include($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/'. $this->Config->folder .'/'. $this->Config->module .'/login.php');
+        include_once($_SERVER["DOCUMENT_ROOT"] .'/'. $this->Config->base .'/Controleur/'. $this->Config->folder .'/users/loginAuth.php');
     }
 
     //Affiche le Footer
