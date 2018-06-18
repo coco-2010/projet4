@@ -12,8 +12,8 @@
                 <textarea class="add-textarea" class="description" name="description" maxlength="636" rows="6"><?= $chapter->description ?></textarea>
             </div>
 
-            <a href="b/chapter/image/<?= $chapter->id ?>" class="button-add button-edit-img" role="button">Modifier les images</a>
-            <button name="modifier" type="submit" value="modifier" class="button-add">Modifier</button>
+            <a href="b/chapter/image/<?= $chapter->id ?>" class="link-button" role="button">Modifier les images</a>
+            <button name="modifier" type="submit" value="modifier" class="high-button">Modifier</button>
         </form>
     </div>
 </div>

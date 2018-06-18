@@ -4,6 +4,7 @@ class editChapter {
 
     function __construct(){
         $this->mod_chapter = new Mod_chapter();
+        $this->Outil = new Outil();
         $id = $_GET['param'];
         
         $this->getData($id);
@@ -23,6 +24,8 @@ class editChapter {
     //modifie le chapitre 
     public function edit($id,$data){
         $this->mod_chapter->edit($id, $data);
+        $redirect = "/projet4/b/chapter/listingChapter";
+        $this->Outil->redirect($redirect);
     }
 }
 

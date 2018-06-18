@@ -17,7 +17,7 @@
 
         <div id="navigation" role="navigation">
            
-            <ul class="" id="">
+            <ul>
                 <li class="nav-rank1">
                     <h3 class="link"><i class="fa fa-dashboard fa-fw"></i> Dashboard</h3>
                 </li>

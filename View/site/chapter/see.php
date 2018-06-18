@@ -13,11 +13,11 @@
         foreach ($detailChapter as $keys => $value){
             echo "
                 <h2 id='title-see-detail'>$value->titre</h2>
-                <img class=\"img-responsive\" id='img-see-detail' src='$value->dir/$value->name' alt=''>
+                <img class='img-responsive' id='img-see-detail' src='/projet4/$value->dir/$value->name' alt=''>
                 <div id='container-text-see'>
                 <div id='text-see-detail'>$value->description</div>
                 <p id='author-see-detail'>Jean Forteroche</p>
-                </div>"; 
+                </div>";
         }?>
     </div>
 </section>
@@ -40,8 +40,8 @@
         <form method="POST">
             <div id="form-comment">
                 <h3>Laisser un commentaire</h3>
-                <label for="pseudo">Pseudo</label>
-                <input type="text" name="pseudo">
+                <label for="pseudo" class="label-comment">Pseudo (Optionnel)</label>
+                <input type="text" id="input-pseudo" name="pseudo">
                 <label for="description" id="label-comment">Commentaire</label>
                 <textarea class="add-textarea" id="description" name="description" rows="4" cols="7" required></textarea>
             </div>

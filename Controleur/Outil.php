@@ -1,5 +1,4 @@
 <?php
-//use Mailgun\Mailgun;
 class Outil 
 {
     private $doss;
@@ -9,13 +8,8 @@ class Outil
         return null;
     }
 
-    public function redirect($redirect){var_dump($redirect);
-        if($redirect == "login")
-            echo '<script language="JavaScript" type="text/javascript">window.location.replace("Users/login");</script>';
-        elseif ($redirect == "home")
-            echo '<script language="JavaScript" type="text/javascript">window.location.replace("projet4/home");</script>';
-        else
-            echo '<script language="JavaScript" type="text/javascript">window.location.replace("'.$redirect.'");</script>';
+    public function redirect($redirect){
+        echo '<script language="JavaScript" type="text/javascript">window.location.replace("'.$redirect.'");</script>';var_dump($redirect);
     }
 
     public function alert($type,$msg){

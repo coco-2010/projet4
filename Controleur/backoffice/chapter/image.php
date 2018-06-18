@@ -19,13 +19,16 @@ class Image extends Outil{
         $this->img_dir      = "$this->dir/$this->chapter_id";
         $this->img_count    = $this->count();
         $this->msgAlert = new stdClass();
+        $this->msg = null;
+        $this->type = null;
 
         $this->alertPicture();
     }
 
     public function shownAlert(){
         if(isset($this->msgAlert->type))
-            $this->alert($this->msgAlert->type,$this->msgAlert->msg);
+            $this->msg = $this->msgAlert->msg;
+            $this->type = $this->msgAlert->type;
     }
 
     public function count(){
@@ -37,6 +40,7 @@ class Image extends Outil{
     private function alertPicture(){
         $this->file = $this->mod_image->getDataImg($this->chapter_id);
         
+
         if($this->img_count == 0){
             $this->msgAlert->type = "danger";
             $this->msgAlert->msg = "Aucune image trouvée";
@@ -44,6 +48,8 @@ class Image extends Outil{
             $this->msgAlert->type = "info ";
             $this->msgAlert->msg = "$this->img_count images trouvées";
         }
+
+        $this->shownAlert();
         require "View/backoffice/chapter/image.php"; 
     }
     

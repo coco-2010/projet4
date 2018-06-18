@@ -4,6 +4,7 @@ class delChapter{
 
     function __construct(){
         $this->mod_chapter = new Mod_chapter();
+        $this->Outil = new Outil();
         $this->delete();
     }
 
@@ -12,9 +13,25 @@ class delChapter{
         require "View/backoffice/chapter/del.php";
         $this->mod_chapter->delete($id);
         $this->mod_chapter->deleteComment($id);
-        $this->mod_chapter->delImage($id);
-        // unlink('Theme/site/img/img_chapter/'.$this->chapter_id.'/.*');
-        //rmdir("Theme/site/img/img_chapter/$this->chapter_id");
+        $this->mod_chapter->deleteImage($id);
+        
+        //delete fichier image
+        $dir = 'Theme/site/img/img_chapter/'.$id;
+        $images = glob($dir . "/*.jpg");
+
+        if (empty($images)){
+            echo "L'image que vous voulez supprimer n'existe pas.";
+        }
+        else{
+            foreach($images as $image)
+            {
+              unlink($image);
+            } 
+            rmdir('Theme/site/img/img_chapter/'.$id);
+        }
+
+        $redirect = "/projet4/b/chapter/listingChapter";
+        $this->Outil->redirect($redirect);
     }
 }
 

@@ -16,13 +16,18 @@ class imageAdd extends Outil{
         $this->dir = "Theme/site/img/img_chapter";
         $this->img_dir      = "$this->dir/$this->chapter_id";
         $this->msgAlert = new stdClass();
+        $this->msg = null;
+        $this->type = null;
+
         $id = $_GET['param'];
-        require "View/backoffice/chapter/imageAdd.php";
+       
+        $this->alertImage();
+
         if(isset($_POST['add'])){
             $this->add($_FILES['img']);
         }
-
-        $this->alertImage();
+        require "View/backoffice/chapter/imageAdd.php";
+        
     }
 
     public function add($file){
@@ -39,15 +44,19 @@ class imageAdd extends Outil{
 
             $resultat = move_uploaded_file($file['tmp_name'],$dire);
 
-            if ($resultat)
+            if ($resultat){
                 $this->mod_image->bddAddImage($this->img_dir,"$nom.$extension",$this->chapter_id,$extension);
+                $this->shownAlert();
+            }
+                
 
         }
     }
 
     public function shownAlert(){
         if(isset($this->msgAlert->type))
-            $this->alert($this->msgAlert->type,$this->msgAlert->msg);
+        $this->msg = $this->msgAlert->msg;
+        $this->type = $this->msgAlert->type;
     }
 
     public function alertImage(){

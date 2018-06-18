@@ -16,8 +16,8 @@
                         echo "<tr>";
                             echo "<td>$value->titre</td>";
                             echo '<td>'.substr($value->description, 0, 200).'</td>';
-                            echo "<td><a href='b/chapter/editChapter/$value->id' role='button' class='button-edit'>Modifier</a></td>";
-                            echo "<td><a href='b/chapter/delChapter/$value->id' role='button' class='button-delete'>Supprimer</a></td>";
+                            echo "<td style='padding-left: 5px;'><a href='b/chapter/editChapter/$value->id' role='button' class='small-button chapter-button-green'>Modifier</a></td>";
+                            echo "<td style='padding-left: 5px;'><a href='b/chapter/delChapter/$value->id' role='button' class='small-button button-red'>Supprimer</a></td>";
                             echo "</tr>";
                     echo "</tbody>";
                 }

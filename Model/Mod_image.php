@@ -33,8 +33,8 @@ class Mod_image extends Outil
 
 
     public function delete($id){
-        $this->bdd->query('DELETE FROM chapter_img WHERE id= :id');
-        $this->bdd->bind(':id', $id);
+        $this->bdd->query('DELETE FROM chapter_img WHERE id_chapter= :id_chapter');
+        $this->bdd->bind(':id_chapter', $id);
         $this->bdd->execute();
     }
 

@@ -22,7 +22,7 @@
                     <label for="description" class="add-label">Description</label>
                     <textarea class="add-textarea" class="description" name="description" rows="6"></textarea>
                 </div>
-            <button name="modifier" type="submit" value="modifier" class="button-add">Ajouter</button>
+            <button name="modifier" type="submit" value="modifier" class="high-button">Ajouter</button>
         </form>              
     </div>
 </div>

@@ -14,7 +14,7 @@ class addChapter extends Outil{
         $this->type = null;
 
         $this->alertChapter();
-        
+
         if(isset($_POST['modifier'])){
             $this->add($_POST);
         }
@@ -29,8 +29,8 @@ class addChapter extends Outil{
 
     public function shownAlert(){
         if(isset($this->msgAlert->type))
-            $this->msg = $this->msgAlert->msg;
-            $this->type = $this->msgAlert->type;
+        $this->msg = $this->msgAlert->msg;
+        $this->type = $this->msgAlert->type;
     }
 
     private function alertChapter(){

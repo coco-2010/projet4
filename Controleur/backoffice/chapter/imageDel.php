@@ -12,9 +12,22 @@ class imageDel extends Outil{
     public function delete(){
         require "View/backoffice/chapter/imageDel.php";
         $this->mod_image->delete($this->chapter_id);
-       // unlink('Theme/site/img/img_chapter/'.$this->chapter_id.'/.*');
-        //rmdir("Theme/site/img/img_chapter/$this->chapter_id");
         
-    }
+        $dir = 'Theme/site/img/img_chapter/'.$this->chapter_id;
+        $images = glob($dir . "/*.jpg");
+
+        if (empty($images)){
+            echo "L'image que vous voulez supprimer n'existe pas.";
+        }
+        else{
+            foreach($images as $image)
+            {
+              unlink($image);
+            } 
+            rmdir('Theme/site/img/img_chapter/'.$this->chapter_id);
+        }
+         
+        
+    } 
 
 }

@@ -43,7 +43,7 @@
     public function paginate(){
         $this->Paginator->total = $this->nb();
         $link = "b/comment/listingComment";
-        $paginator = $this->Paginator->paginate($this->param, $this->param2, $link);var_dump($this->paginator);
+        $paginator = $this->Paginator->paginate($this->param, $this->param2, $link);
         return $paginator;
     }
 }

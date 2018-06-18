@@ -11,6 +11,151 @@ h2,h3{
     font-weight: normal;
 }
 
+/* ----------------
+=       BUTTON    =
+------------------*/
+    /*small button*/
+.small-button{
+    text-decoration: none;
+    padding: 15px;
+    font-size: 18px;
+    line-height: 60px;
+    color: white;
+    border-radius: 5px;
+    
+}
+
+.chapter-button-green{
+    background-color: #5cb85c;
+    padding-left: 39%;
+    padding-right: 39%;
+}
+
+.button-red{
+    background-color: #d9534f;
+    padding-left: 35%;
+    padding-right: 35%;
+}
+
+.comment-button-green{
+    background-color: #5cb85c;
+    padding-left: 37%;
+    padding-right: 37%;
+}
+
+@media screen and (min-width: 768px){
+    .button-red{
+        padding-left: 27%;
+        padding-right: 27%;
+    }
+    .chapter-button-green{
+        background-color: #5cb85c;
+        padding-left: 33%;
+        padding-right: 33%;
+    }
+    .comment-button-green{
+        padding-left: 30%;
+        padding-right: 30%;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .button-red{
+        padding-left: 35%;
+        padding-right: 35%;
+    }
+    .chapter-button-green{
+        background-color: #5cb85c;
+        padding-left: 39%;
+        padding-right: 39%;
+    }
+    .comment-button-green{
+        background-color: #5cb85c;
+        padding-left: 37%;
+        padding-right: 37%;
+    }
+}
+
+
+
+.chapter-button-green:hover, .comment-button-green, .button-add:hover{
+    background: #449d44;
+}
+
+.button-red:hover{
+    background-color: #c9302c;
+}
+
+    /* higth button*/
+
+.high-button{
+    width: 100%;
+    line-height: 45px;
+    font-size: 20px;
+    background: #5cb85c;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    color: white;
+}
+
+.link-button{
+    text-decoration: none;
+    padding: 12px;
+    font-size: 20px;
+    line-height: 45px;
+    color: white;
+    border-radius: 5px;
+    background: #5cb85c;
+    padding-left: 42.3%;
+    padding-right: 42.2%;
+}
+
+/*IMAGE */
+.button-img{
+    padding-left: 39%;
+    padding-right: 39%;
+}
+
+.link-button-img{
+    padding-left: 43%;
+    padding-right: 43%;
+}
+
+.button-img-back{
+    padding-left: 43%;
+    padding-right: 43%;
+}
+
+@media screen and (min-width:768px){
+    .link-button{
+        padding-left: 38.5%;
+        padding-right: 38.5%;
+    }
+    .link-button-img{
+        padding-left: 39.7%;
+        padding-right: 39.5%;
+    }
+    .button-img-back{
+        padding-left: 33%;
+        padding-right: 33%;
+        line-height: 30px;
+    }
+
+}
+
+@media screen and (min-width:1200px){
+    .link-button{
+        padding-left: 42.3%;
+        padding-right: 42.2%;
+    }
+    .link-button-img{
+        padding-left: 43%;
+        padding-right: 43%;
+    }
+}
+
 /* ----------------------------------
 =       BACKOFFICE LOGIN/REGISTER    =
 ------------------------------------*/
@@ -72,18 +217,32 @@ h2,h3{
 /* ----------------------------------
 =       BACKOFFICE SYSTEME          =
 ------------------------------------*/
+@media screen and (min-width: 768px){
+    #navigation{
+        width: 17% !important;
+        height: 100%;
+        background: #f8f8f8;
+        font-size: 15px;
+        position: fixed;
+        padding-top: 50px;
+    }
 
+}
+
+#navigation {
+    padding-top: 10px;
+    width: 100%;
+}
 #dashboard-nav:hover{
     color: #286090;
 }
-
 #dashboard-header{
     height: 50px;
     width: 100%;
     background: #f8f8f8;
     position: fixed;
     top: 0;
-    z-index: 2;
+    z-index: 10000;
     line-height: 50px;
     border-bottom: 1px solid #eeeeee;
 }
@@ -123,24 +282,20 @@ li{
     font-size: 14px;
 }
 
-#navigation{
-    width: 17%;
-    height: 100%;
-    background: #f8f8f8;
-    font-size: 15px;
-    position: fixed;
-    padding-top: 50px;
-}
+
 
 .nav-rank1{
     background: #f8f8f8;
     border-bottom: 1px solid #eeeeee;
     line-height: 40px;
     padding-left: 20px;
+    
+    z-index: 4;
 }
 
 #navigation ul ul{
     display: none;
+    z-index: 10;
 }
 #navigation:hover{
     cursor: pointer;
@@ -159,9 +314,19 @@ li{
 
 .page-backoffice{
     position: absolute;
-    left:20%;
-    top: 15%;
-    width: 77%;
+    top: 25%;
+    width: 90%;
+    left: 5px;
+    z-index: 3;
+}
+
+@media screen and (min-width:768px){
+    .page-backoffice{
+        position: absolute;
+        left:20%;
+        top: 15%;
+        width: 77%;
+   } 
 }
 
 .page-header{
@@ -172,51 +337,66 @@ li{
 }
 
 .table-container{
-   
-    padding-right: 2%;
-    padding-left: 2%;
-    border: 1px solid #eeeeee;
-    border-radius: 5px;
     margin-top: 80px;
 }
 
-.table{
-    border: 1px solid #eeeeee;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-collapse: collapse;
+tr{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 20px;
 }
-
 th{
-    line-height: 35px;
-    border-bottom: 3px solid #eeeeee !important;
+    display: none; 
+}
+ td{
+    width: 100% !important;
 }
 
-td{
-    padding-left: 10px;
-    padding-right: 10px;
+@media screen and (min-width:768px){
+    .table-container{
+   
+        padding-right: 2%;
+        padding-left: 2%;
+        border: 1px solid #eeeeee;
+        border-radius: 5px;
+        
+    }
+    
+    .table{
+        border: 1px solid #eeeeee;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-collapse: collapse;
+    }
+
+    tr{
+        flex-direction: row;
+        text-align: left;
+        margin-bottom: 0;
+    }
+    
+    th{
+        line-height: 35px;
+        border-bottom: 3px solid #eeeeee !important;
+        display: inline;
+        text-align: center;
+    }
+    
+    td{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    th, td{
+        border: 1px solid#eeeeee;
+        width: 25%;
+    }
 }
 
-th, td{
-    border: 1px solid#eeeeee;
-    width: 25%;
-}
 
-.button-edit{
-    text-decoration: none;
-    padding: 15px;
-    padding-left: 36%;
-    padding-right: 36%;
-    font-size: 18px;
-    line-height: 60px;
-    color: white;
-    border-radius: 5px;
-    background-color: #5cb85c;
-}
 
-.button-edit:hover, .button-add:hover{
-    background: #449d44;
-}
+
 
 .button-block{
     color: black;
@@ -228,21 +408,6 @@ th, td{
     border: none;
 }
 
-.button-delete{
-    text-decoration: none;
-    padding: 15px;
-    padding-left: 33%;
-    padding-right: 33%;
-    font-size: 18px;
-    line-height: 60px;
-    color: white;
-    border-radius: 5px;
-    background-color: #d9534f;
-}
-
-.button-delete:hover{
-    background-color: #c9302c;
-}
 
 /* page add*/
 .form-group{
@@ -268,26 +433,6 @@ th, td{
     box-shadow: 0px 0px 12px #337ab7;
 }
 
-.button-add{
-    width: 100%;
-    line-height: 45px;
-    font-size: 20px;
-    background: #5cb85c;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    color: white;
-}
-
-/*edit */
-.button-edit-img{
-    text-decoration: none;
-    padding: 12px;
-    padding-left: 30.9vw;
-    padding-right: 30.8vw;
-}
-
 /*image*/
 .album {
     min-height: 40rem; 
@@ -304,7 +449,6 @@ th, td{
 
 .img-card{
     width: 100%;
-    height: 300px;
 }
 .card > img {margin-bottom: .75rem;}
 
@@ -314,10 +458,10 @@ th, td{
 .pagination{
     list-style: none;
     border-radius: 0 5px 5px 0;
-    width: 20%;
+    width: 50%;
     position: absolute;
-    right: 3%;
-    top: 14%;
+    right: 20%;
+    top: 35%;
     display: flex;
     font-size: 20px;
     padding-left: 0; 
@@ -325,6 +469,8 @@ th, td{
 @media screen and (min-width:768px){
     .pagination{
         width:10%;
+        top: 14%;
+        right: 3%;
     }
 }
 

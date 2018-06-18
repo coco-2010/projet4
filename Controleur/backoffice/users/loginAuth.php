@@ -38,7 +38,7 @@ class loginAuth extends Outil{
             if (sha1($this->salt.$_POST['password']) == $data->password) {
                 $_SESSION['token']      = $data->token;
                 $_SESSION['email']      = $data->email;
-                $redirect= "b/home/home";
+                $redirect= "/projet4/b/home/home";
                 $this->Outil->redirect($redirect);
                 return true;
             }else "Mauvais identifiants";

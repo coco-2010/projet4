@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div id="img-author">
-                <img id="img" src="Theme/site/img/img_author.jpg" alt="Image jean Forteroche">
+                <img id="img" src="/projet4/Theme/site/img/img_author.jpg" alt="Image jean Forteroche">
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@
             foreach ($lastChapter as $keys => $value){
                 echo "
                     <a href='s/chapter/showDetailChapter/$value->id_chapter' class='s-last-chapter'>
-                        <img src='$value->dir/$value->name' class='img-last-chapter' alt=''>
+                        <img src='/projet4/$value->dir/$value->name' class='img-last-chapter' alt=''>
                         <div class='s-text-last-chapter' >
                             <h2>$value->titre</h2>";
                 echo '      <div>'.substr($value->description, 0, 200).'...</div>

@@ -12,7 +12,7 @@
     <?php 
     foreach ($allChapter as $keys => $value){
         echo "<a href='s/chapter/showDetailChapter/$value->id_chapter' class='s-chapter'>
-            <img class='s-card-img' src='$value->dir/$value->name' alt=''>
+            <img class='s-card-img' src='/projet4/$value->dir/$value->name' alt=''>
             <div class='s-text-chapter'>
                 <h4 class=''>$value->titre</h4>";
         echo'       <div class="owerflow">'.substr($value->description, 0, 722).' ...</div>
