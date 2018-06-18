@@ -112,7 +112,8 @@
         $this->bdd->query('SELECT * FROM chapter
         LEFT JOIN chapter_img
         ON chapter.id = chapter_img.id_chapter
-        WHERE chapter.id='.$id);
+        WHERE chapter.id= :id');
+        $this->bdd->bind(':id', $id);
         return $this->bdd->resultset();
     }
 

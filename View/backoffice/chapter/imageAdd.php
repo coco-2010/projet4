@@ -2,10 +2,7 @@
     <div class="">
         <div class="alert">
         <?php 
-            echo "<div class='alert alert-$this->type' role='alert'>$this->msg
-                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                <span aria-hidden='true'>&times;</span>
-                </button></div>";
+            echo "<div class='alert alert-$this->type' role='alert'>$this->msg</div>";
             ?>
         </div>
     </div>

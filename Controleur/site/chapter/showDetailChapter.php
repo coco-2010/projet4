@@ -18,7 +18,7 @@ class showDetailChapter {
         $id = $_GET['param'];
         $msg = $this->addComment->msg;
         $type = $this->addComment->type;
-
+ 
         $data = $this->shownComment->shownAd();
         $detailChapter = $this->mod_chapter->getAllDataImgprincipale($id);
         $alert = $this->addComment->shownAlert();

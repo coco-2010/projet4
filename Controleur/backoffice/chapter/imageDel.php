@@ -6,6 +6,7 @@ class imageDel extends Outil{
     public function __construct(){
         $this->mod_image = new Mod_image();
         $this->chapter_id = $_GET['param'];
+        $this->Outil = new Outil;
         $this->delete();
     }
 
@@ -27,7 +28,8 @@ class imageDel extends Outil{
             rmdir('Theme/site/img/img_chapter/'.$this->chapter_id);
         }
          
-        
+        $redirect = "/projet4/b/chapter/$this->chapter_id/image";
+        $this->Outil->redirect($redirect);
     } 
 
 }

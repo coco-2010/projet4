@@ -14,17 +14,11 @@ class addChapter extends Outil{
         $this->type = null;
 
         $this->alertChapter();
-
         if(isset($_POST['modifier'])){
             $this->add($_POST);
         }
-
-        
-        
-
         
         require  "View/backoffice/chapter/add.php";
-        
     }
 
     public function shownAlert(){

@@ -19,9 +19,6 @@
            
             <ul>
                 <li class="nav-rank1">
-                    <h3 class="link"><i class="fa fa-dashboard fa-fw"></i> Dashboard</h3>
-                </li>
-                <li class="nav-rank1">
                     <h3 class="link"><i class="fa fa-book fa-fw"></i> Chapitre<span class="fa fa-angle-left"></span></h3>
                     <ul class="nav-rank2">
                         <li><a class="link" href="b/chapter/listingChapter">Liste</a></li>

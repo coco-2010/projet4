@@ -4,23 +4,20 @@
 
     <div class="">
         <div class="alert">
-             <?php echo "<div class='alert alert-$this->type' role='alert'>$this->msg
-                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                <span aria-hidden='true'>&times;</span>
-                </button></div>";
+             <?php echo "<div class='alert alert-$this->type' role='alert'>$this->msg</div>";
             ?>
         </div>
     </div>
 
     <div class="table-container ">
-        <form method="POST">
+         <form method="post">
                 <div class="form-group ">
                     <label for="titre" class="add-label">Titre</label>
-                    <input type="text" class="add-input" id="titre" name="titre">
+                    <input type="text" class="add-input" id="titre" name="titre" required>
                 </div>
                 <div class=" form-group">
                     <label for="description" class="add-label">Description</label>
-                    <textarea class="add-textarea" class="description" name="description" rows="6"></textarea>
+                    <textarea class="add-textarea" class="add-input" name="description" rows="6"></textarea>
                 </div>
             <button name="modifier" type="submit" value="modifier" class="high-button">Ajouter</button>
         </form>              

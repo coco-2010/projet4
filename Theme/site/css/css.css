@@ -96,7 +96,7 @@ body{
 @media screen and (min-width: 1200px){
     #title{
         font-size: 60px;
-        line-height: 2;
+        line-height: 2.5;
     }
 }
 
@@ -358,7 +358,7 @@ footer{
     line-height: 100px;
 }
 
-@media screen and (min-width:768px){
+@media screen and (min-width:768px) {
     footer{
         margin-top: 100px;
     }
@@ -440,12 +440,23 @@ footer{
 @media screen and (min-width: 768px){
     .s-chapter{
         flex-direction: row;
-        height: 250px;
-        width: 70%;
+        height: 310px;
+        width: 90%;
     }
     .s-card-img{
         margin-right: 40px;
         margin-bottom: 0;
+        width: 350px !important;
+        min-width: 350px;
+    }
+}
+
+@media screen and (min-width:1200px){
+    .s-chapter{
+        height: 250px;
+        width: 70%;
+    }
+    .s-card-img{
         width: 350px;
     }
 }
@@ -465,6 +476,7 @@ footer{
 @media screen and (min-width: 768px){
     .s-text-chapter{
         width: 80%;
+        height: auto;
         position: relative;
         max-width: 80%;
     }
@@ -650,12 +662,3 @@ footer{
     }
 }
 
-.close{
-    background: #d8d7d7;
-    color: red;
-    position: absolute;
-    border: none;
-    top: -40px;
-    line-height: 30px;
-    left: 99%;
-}

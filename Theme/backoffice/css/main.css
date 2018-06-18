@@ -230,8 +230,10 @@ h2,h3{
 }
 
 #navigation {
-    padding-top: 10px;
     width: 100%;
+    padding-top: 50px;
+    z-index: 1000;
+    position: sticky;
 }
 #dashboard-nav:hover{
     color: #286090;
@@ -314,7 +316,7 @@ li{
 
 .page-backoffice{
     position: absolute;
-    top: 25%;
+    top: 30%;
     width: 90%;
     left: 5px;
     z-index: 3;
@@ -350,7 +352,11 @@ th{
     display: none; 
 }
  td{
-    width: 100% !important;
+    width: 100% ;
+}
+
+.small-col{
+    width: 100%;
 }
 
 @media screen and (min-width:768px){
@@ -382,15 +388,25 @@ th{
         display: inline;
         text-align: center;
     }
-    
+
     td{
         padding-left: 10px;
         padding-right: 10px;
     }
+
+    th{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
     
-    th, td{
+    th, td {
         border: 1px solid#eeeeee;
         width: 25%;
+        
+    }
+
+    .small-col{
+        width: 12.5%;
     }
 }
 
@@ -411,9 +427,14 @@ th{
 
 /* page add*/
 .form-group{
-    display: flex;
     margin-bottom: 10px;
     margin-top: 20px;
+}
+
+@media screen and (min-width:768px){
+    .form-group{
+        display: flex;
+    }
 }
 
 .add-label{
@@ -440,11 +461,21 @@ th{
 }
 .card {
     float: left;
-    width: 33.333%;
+    width: 100%;
     box-sizing: border-box;
     padding: .75rem;
     margin-bottom: 2rem;
     border: 0;
+}
+@media screen and (min-width: 768px){
+    .card{
+        width: 50%;
+    }
+}
+@media screen and (min-width: 1200px){
+    .card{
+        width: 33.333%;
+    }
 }
 
 .img-card{
@@ -461,7 +492,7 @@ th{
     width: 50%;
     position: absolute;
     right: 20%;
-    top: 35%;
+    top: 40%;
     display: flex;
     font-size: 20px;
     padding-left: 0; 
@@ -492,4 +523,16 @@ th{
 
 .sr-only{
     display: none;
+}
+
+.alert{
+    background: #5cb85c;
+    width: 92%;
+    margin: auto;
+    border-radius: 5px;
+    line-height: 50px;
+    padding-left: 10px;
+    position: relative;
+    margin-bottom: 30px;
+    margin-top:  50px;
 }
