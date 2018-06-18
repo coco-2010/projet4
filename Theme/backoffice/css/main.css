@@ -10,7 +10,9 @@
 h2,h3{
     font-weight: normal;
 }
-
+a{
+    color: black;
+}
 /* ----------------
 =       BUTTON    =
 ------------------*/
