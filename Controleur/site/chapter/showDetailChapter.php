@@ -9,6 +9,7 @@ class showDetailChapter {
         $this->paginator = new Paginator();
         $this->shownComment = new shownComment;
         $this->addComment = new addComment;
+        $this->Outil = new Outil();
         $this->shownDetailAd();
         
     }
@@ -22,8 +23,15 @@ class showDetailChapter {
         $data = $this->shownComment->shownAd();
         $detailChapter = $this->mod_chapter->getAllDataImgprincipale($id);
         $alert = $this->addComment->shownAlert();
-        require "View/site/chapter/see.php"; 
-        $this->shownComment->paginate();
+        if (empty($detailChapter)){
+            $redirect = "/projet4/s/chapter/shownChapter";
+            $this->Outil->redirect($redirect);
+        }
+        else{
+            require "View/site/chapter/see.php"; 
+            $this->shownComment->paginate();
+        }
+       
     }
 }
 

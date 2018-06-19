@@ -14,6 +14,7 @@ class Image extends Outil{
 
     public function __construct(){
         $this->mod_image = new Mod_image();
+        $this->Outil = new Outil();
         $this->chapter_id   = $_GET['param'];
         $this->dir          = "Theme/site/img/img_chapter";
         $this->img_dir      = "$this->dir/$this->chapter_id";
@@ -39,18 +40,23 @@ class Image extends Outil{
 
     private function alertPicture(){
         $this->file = $this->mod_image->getDataImg($this->chapter_id);
-        
 
-        if($this->img_count == 0){
-            $this->msgAlert->type = "danger";
-            $this->msgAlert->msg = "Aucune image trouvée";
-        }elseif($this->img_count > 0){
-            $this->msgAlert->type = "info ";
-            $this->msgAlert->msg = "$this->img_count images trouvées";
+        if(empty($this->file)){
+            $redirect = "/projet4/b/chapter/listingChapter";
+            $this->Outil->redirect($redirect);
         }
+        else{
+            if($this->img_count == 0){
+                $this->msgAlert->type = "danger";
+                $this->msgAlert->msg = "Aucune image trouvée";
+            }elseif($this->img_count > 0){
+                $this->msgAlert->type = "info ";
+                $this->msgAlert->msg = "$this->img_count images trouvées";
+            }
 
-        $this->shownAlert();
-        require "View/backoffice/chapter/image.php"; 
+            $this->shownAlert();
+            require "View/backoffice/chapter/image.php"; 
+        }
     }
     
 }

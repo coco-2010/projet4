@@ -27,6 +27,9 @@ class Systeme extends Outil
             $lastChapter = new lastChapter;
             $Outil = new Outil;
         }
+        else if (!isset($page) && $folder == "b" && !isset($_SESSION['email'])){
+            $loginAuth = new loginAuth();
+        }
        
         else{
             switch($page) {

@@ -21,6 +21,7 @@
         ORDER BY id DESC
         LIMIT 12 OFFSET :offset');
         $this->bdd->bind(':offset', $start, PDO::PARAM_INT);
+        
         return $this->bdd->resultset();
     }
 

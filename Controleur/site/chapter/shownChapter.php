@@ -7,8 +7,12 @@ class shownChapter{
     function __construct(){
         $this->mod_chapter = new Mod_chapter();
         $this->Paginator = new Paginator();
+        $this->Outil = new Outil();
         
-        $this->param = (isset($_GET['param']))?intval($_GET['param']):1;
+        $this->param = (isset($_GET['param']))?$_GET['param']:1;
+        if (!is_numeric($this->param ) || $this->param < 0){
+            $this->param = 1;
+        }
         $this->param2 = null;
         
         $this->shownAd();
@@ -16,10 +20,15 @@ class shownChapter{
 
     //affiche les chapitres
     public function shownAd(){      
-        
         $allChapter = $this->mod_chapter->getAllDataImg($this->param);
-        require "View/site/chapter/chapter.php";
-        $this->paginate();
+        if(empty($allChapter)){
+            $redirect = "/projet4/s/chapter/shownChapter";
+            $this->Outil->redirect($redirect);
+        }
+        else{
+            require "View/site/chapter/chapter.php";
+            $this->paginate();
+        }
     }
 
      //compte le nb d'entree
@@ -33,7 +42,9 @@ class shownChapter{
         $this->Paginator->total = $this->nb();
         $link = "s/chapter/shownChapter";
         $paginator = $this->Paginator->paginate($this->param, $this->param2, $link);var_dump($this->paginator);
-        return $paginator;
+        
+        return $paginator;var_dump($paginator);
+        
     }
 }
 

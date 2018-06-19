@@ -9,15 +9,20 @@
 
     function __construct(){
         $this->chapter_id   = (isset($_GET['param']))?intval($_GET['param']):1;
-        $this->param2 = (isset($_GET['param2']))?intval($_GET['param2']):1;
+        $this->param2 = (isset($_GET['param2']))?$_GET['param2']:1;
+        if (!is_numeric($this->param2 ) || $this->param2 < 0){
+            $this->param2 = 1;
+        }
         $this->mod_comment  = new Mod_comment();
         $this->Paginator = new Paginator();
+        $this->Outil = new Outil();
     }
 
     public function shownAd(){
         
         $data = $this->mod_comment->getAllDataImg($this->param2, $this->chapter_id);
         return $data;
+        
     }
 
     public function nb(){

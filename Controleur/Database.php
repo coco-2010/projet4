@@ -76,12 +76,6 @@ class Database
     public function rowCount(){
         return $this->stmt->rowCount();
     }
-  /*  public function Count($table, $where, $value){
-        $this->query('SELECT count(*) AS total FROM '.$table.' WHERE '.$where.' = :where');
-        $this->bind(':where', $value);
-        $t = $this->single();
-        return $t->total;
-    }*/
 
     public function queryError(){
         $this->qError = $this->bdd->errorInfo();

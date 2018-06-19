@@ -17,7 +17,13 @@ class editChapter {
     //recupere les infos du chapitre
     public function getData($id){
         $chapter = $this->mod_chapter->getData($id);
-        require "View/backoffice/chapter/edit.php";
+        if(empty($chapter)){
+            $redirect = "/projet4/b/chapter/listingChapter";
+            $this->Outil->redirect($redirect);
+        }
+        else{
+            require "View/backoffice/chapter/edit.php";
+        }
         
     }
 

@@ -8,8 +8,12 @@
      function __construct(){
          $this->mod_comment  = new Mod_comment();
          $this->Paginator = new Paginator();
-         $this->param = (isset($_GET['param']))?intval($_GET['param']):1; 
+         $this->param = (isset($_GET['param']))?$_GET['param']:1; 
          $this->param2 = null;
+         if (!is_numeric($this->param ) || $this->param < 0){
+            $this->param = 1;
+        }
+        
          
          $this->report = null;
          $this->data = null;
