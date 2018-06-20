@@ -54,43 +54,52 @@ body{
     border-bottom: 2px solid #0078d7;
     box-sizing: border-box;
     color: white;
+    
 }
-
 
 
 #container-header{
     text-align: center;
+    padding-top: 25%;
     margin: auto;
     width: 80%;
     height: 50%;
-    line-height: 600px;
+ /*   line-height: 600px;*/
     position: relative;
 }
 
 @media screen and (min-width: 768px){
     #container-header{  
-        line-height: 750px;
+        padding-top: 15%;
     }
 }
 
 
 @media screen and (min-width: 1200px){
     #container-header{  
-        line-height: 750px;
+        padding-top: 5%;
     }
 }
 
 @media screen and (min-width: 1600px){
     #container-header{
-        line-height: 970px;
+        padding-top: 10%;
     }
 }
-#title{
+#title {
     font-size: 40px;
-    display: inline-block;
-    line-height: 1;
-    vertical-align: middle;
+    line-height: 1.2;
     font-family: 'Tangerine', cursive;
+}
+#title h1{
+    font-family: 'Tangerine', cursive;
+}
+
+@media screen and (min-width: 768px){
+    #title{
+        font-size: 60px;
+        line-height: 1.2;
+    }
 }
 
 @media screen and (min-width: 1200px){
@@ -481,7 +490,6 @@ footer{
         max-width: 80%;
     }
 }
-
 
 .see-rest{
     margin-top: 20px;

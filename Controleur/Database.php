@@ -4,7 +4,7 @@ class Database
     private $host = '127.0.0.1';
     private $db_name = 'projet4';
     private $user = 'root';
-    private $password = '';
+    private $password = 'zeeko1997*';
 
     private $bdd;
     private $error;

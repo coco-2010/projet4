@@ -110,8 +110,8 @@ a{
     color: white;
     border-radius: 5px;
     background: #5cb85c;
-    padding-left: 42.3%;
-    padding-right: 42.2%;
+    padding-left: 23%;
+    padding-right: 23%;
 }
 
 /*IMAGE */
@@ -121,13 +121,13 @@ a{
 }
 
 .link-button-img{
-    padding-left: 43%;
-    padding-right: 43%;
+    padding-left: 21.5%;
+    padding-right: 21.5%;
 }
 
 .button-img-back{
-    padding-left: 43%;
-    padding-right: 43%;
+    padding-left: 10.5%;
+    padding-right: 10.5%;
 }
 
 @media screen and (min-width:768px){
@@ -156,6 +156,10 @@ a{
         padding-left: 43%;
         padding-right: 43%;
     }
+    .button-img-back{
+        padding-left: 38.7%;
+        padding-right: 38.5%;
+    }
 }
 
 /* ----------------------------------
@@ -163,10 +167,22 @@ a{
 ------------------------------------*/
 
 .container{
-    width: 25%;
+    width: 90%;
     margin: auto;
     margin-top: 5%;
 
+}
+
+@media screen and (min-width:768px){
+    .container{
+        width: 60%;
+    }
+}
+
+@media screen and (min-width:1200px){
+    .container{
+        width: 25%;
+    }
 }
 
 .form{
@@ -235,7 +251,14 @@ a{
     width: 100%;
     padding-top: 50px;
     z-index: 1000;
+    
     position: sticky;
+}
+
+@media screen and (min-width:768px){
+    #navigation{
+        position: fixed;
+    }
 }
 #dashboard-nav:hover{
     color: #286090;
@@ -320,7 +343,7 @@ li{
     position: absolute;
     top: 30%;
     width: 90%;
-    left: 5px;
+    left: 5%;
     z-index: 3;
 }
 
@@ -499,6 +522,7 @@ th{
     display: flex;
     font-size: 20px;
     padding-left: 0; 
+    z-index: 100000;
 }
 
 @media screen and (min-width:768px){

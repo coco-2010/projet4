@@ -39,7 +39,6 @@ require_once "Controleur/backoffice/comment/listingComment.php";
     // users
 require_once "Controleur/backoffice/users/disconnect.php";
 require_once "Controleur/backoffice/users/loginAuth.php";
-/*require_once "Controleur/backoffice/users/registerAuth.php";*/
 
 
 

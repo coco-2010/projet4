@@ -24,8 +24,9 @@ class listingChapter{
             $this->Outil->redirect($redirect);
         }
         else{
-            require "View/backoffice/chapter/listing.php";
             $this->paginate();
+            require "View/backoffice/chapter/listing.php";
+            
         }
         
     }

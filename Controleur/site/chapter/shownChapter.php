@@ -43,7 +43,7 @@ class shownChapter{
         $link = "s/chapter/shownChapter";
         $paginator = $this->Paginator->paginate($this->param, $this->param2, $link);var_dump($this->paginator);
         
-        return $paginator;var_dump($paginator);
+        return $paginator;
         
     }
 }

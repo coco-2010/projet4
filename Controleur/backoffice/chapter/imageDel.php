@@ -28,7 +28,7 @@ class imageDel extends Outil{
             rmdir('Theme/site/img/img_chapter/'.$this->chapter_id);
         }
          
-        $redirect = "/projet4/b/chapter/$this->chapter_id/image";
+        $redirect = "/projet4/b/chapter/image/$this->chapter_id";
         $this->Outil->redirect($redirect);
     } 
 

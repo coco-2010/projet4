@@ -6,7 +6,7 @@
             <div id="container-dashboard-header">
 
                 <div id="">
-                    <a id="dashboard-title" href="b/">System Lab</a>
+                    <a id="dashboard-title" href="b/">Backoffice</a>
                 </div>
 
                 <ul id="link-logout">
@@ -30,6 +30,9 @@
                     <ul class="nav-rank2">
                         <li><a class="link" href="b/comment/listingComment">Liste</a></li>
                     </ul>
+                </li>
+                <li class="nav-rank1"> 
+                    <a class="link" href="s/"><h3>Retour au site</h3></a>
                 </li>
             </ul>
             
