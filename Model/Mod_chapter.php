@@ -119,7 +119,7 @@
     }
 
     public function getLastChapter(){
-        $this->bdd->query('SELECT * FROM CHAPTER
+        $this->bdd->query('SELECT * FROM chapter
         INNER JOIN chapter_img
         ON chapter.id = chapter_img.id_chapter
         ORDER BY chapter.id DESC

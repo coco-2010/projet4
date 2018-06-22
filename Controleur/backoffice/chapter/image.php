@@ -21,7 +21,7 @@ class Image extends Outil{
         $this->img_dir      = "$this->dir/$this->chapter_id";
         $this->img_count    = $this->count();
         $this->msgAlert = new stdClass();
-        $this->msg = null;
+        $this->msg = null; 
         $this->type = null;
 
         $this->alertPicture();

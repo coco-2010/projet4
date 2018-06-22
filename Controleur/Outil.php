@@ -1,4 +1,7 @@
 <?php
+require 'vendor/autoload.php';
+use Mailgun\Mailgun;
+
 class Outil 
 {
     private $doss;
@@ -27,13 +30,13 @@ class Outil
 
    public function contact($data){
         if(!empty ($data)){
-            var_dump($data['name']);
+			$mailgun = Mailgun::create('key-3f21db38b1222d8537d41ba829844804');
+			
             $name = trim($data['name']);
             $subject = trim($data['subject']);
-            $email = trim($data['email']); var_dump($data['email']);
+            $email = trim($data['email']); 
             $message = trim($data['textarea']);
 
-            
             /* Destinataire (votre adresse e-mail) */
             $to = 'coralie.leoty@gmail.com';
             
@@ -46,10 +49,15 @@ class Outil
             $msg .= '***************************'."\r\n";
             
             /* En-têtes de l'e-mail */
-            $headers = "From: \"$name\"<$email>";
-            var_dump($headers);
+            $headers = "\"$name\"<$email>";
             /* Envoi de l'e-mail */
-            mail($to, $subject, $msg, $headers);
+			$mailgun->messages()->send('projet2.creepdev.fr', [
+			  'from'    => $headers,
+			  'to'      => $to,
+			  'subject' => $subject,
+			  'text'    => $msg
+			]);
+			
         }
     }
 }

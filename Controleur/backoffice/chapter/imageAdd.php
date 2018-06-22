@@ -48,7 +48,7 @@ class imageAdd extends Outil{
                 $this->mod_image->bddAddImage($this->img_dir,"$nom.$extension",$this->chapter_id,$extension);
                 $this->shownAlert();
             }
-                
+                 
 
         }
     }

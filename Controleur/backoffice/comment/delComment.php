@@ -11,7 +11,7 @@
      //supprime le chapitre 
     public function delete(){
         $id = $_GET['param'];
-        require "view/backoffice/comment/del.php";
+        require "View/backoffice/comment/del.php";
         $this->mod_comment->delete($id);
         
         $redirect = "/projet4/b/comment/listingComment";
